@@ -1,6 +1,6 @@
 ## Disconnect: Ironhack project - module 2
 
-(Alejandro Jimenez Regalon) + (Thibault Delfaud) x (awesomeness) = Disconnect
+(Alejandro Jimenez Regalon + Thibault Delfaud) x (awesomeness) = Disconnect
 
 - Mockup: https://app.moqups.com/r10YTb0erF/view/page/aa9df7b72
 - Trello: https://trello.com/b/PiHqKdYY/disconnect
