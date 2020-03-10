@@ -1,15 +1,19 @@
-## Disconnect: Ironhack project - module 2
+## README Modulo2
 
+## Project Name: 
+Disconnect
+
+## Creatos
 (Alejandro Jimenez Regalon + Thibault Delfaud) x (awesomeness) = Disconnect
-
-- Mockup: https://app.moqups.com/r10YTb0erF/view/page/aa9df7b72
-- Trello: https://trello.com/b/PiHqKdYY/disconnect
-- Heroku: https://ironhack-disconnect.herokuapp.com/ (connected to the GIT MASTER branch)
 
 ## What is Disconnect?
 Disconnect is an online app that helps you find the nearest musical events around you.
 
 ## Technologies
+- Mockup: https://app.moqups.com/r10YTb0erF/view/page/aa9df7b72
+- Trello: https://trello.com/b/PiHqKdYY/disconnect
+- Heroku: https://ironhack-disconnect.herokuapp.com/ (connected to the GIT MASTER branch)
+
 ### Front end
 - HTML, CSS
 - Back end
@@ -30,3 +34,8 @@ Disconnect is an online app that helps you find the nearest musical events aroun
 ### Dependencies
 - Spotify API https://www.npmjs.com/package/spotify-web-api-node
 - Map Box API https://docs.mapbox.com/api/
+
+
+## Links
+
+https://trello.com/b/PiHqKdYY
