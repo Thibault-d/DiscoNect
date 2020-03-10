@@ -3,7 +3,7 @@
 ## Project Name: 
 Disconnect
 
-## Creatos
+## Creators
 (Alejandro Jimenez Regalon + Thibault Delfaud) x (awesomeness) = Disconnect
 
 ## What is Disconnect?
