@@ -1,11 +1,9 @@
-## Disconnect
-Ironhack project - module 2
+## Disconnect: Ironhack project - module 2
 
-Alejandro Jimenez Regalon
-Thibault Delfaud
+(Alejandro Jimenez Regalon) + (Thibault Delfaud) x (awesomeness) = Disconnect
 
-Mockup: https://app.moqups.com/r10YTb0erF/view/page/aa9df7b72
-Trello: https://trello.com/b/PiHqKdYY/disconnect
+- Mockup: https://app.moqups.com/r10YTb0erF/view/page/aa9df7b72
+- Trello: https://trello.com/b/PiHqKdYY/disconnect
 
 ## What is Disconnect?
 Disconnect is an online app that helps you find the nearest musical events around you.
