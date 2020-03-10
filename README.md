@@ -7,11 +7,11 @@ Thibault Delfaud
 Mockup: https://app.moqups.com/r10YTb0erF/view/page/aa9df7b72
 Trello: https://trello.com/b/PiHqKdYY/disconnect
 
-##What is Disconnect?
+## What is Disconnect?
 Disconnect is an online app that helps you find the nearest musical events around you.
 
-###Technologies
-##Front end
+### Technologies
+## Front end
 - HTML, CSS
 - Back end
 - JavaScript (Node.js, Express.js)
