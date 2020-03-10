@@ -4,6 +4,7 @@
 
 - Mockup: https://app.moqups.com/r10YTb0erF/view/page/aa9df7b72
 - Trello: https://trello.com/b/PiHqKdYY/disconnect
+- Heroku: https://ironhack-disconnect.herokuapp.com/ (connected to the GIT MASTER branch)
 
 ## What is Disconnect?
 Disconnect is an online app that helps you find the nearest musical events around you.
