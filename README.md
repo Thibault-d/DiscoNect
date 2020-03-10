@@ -3,8 +3,8 @@
 ## Project Name: 
 Disconnect
 
-<<<<<<< HEAD
-## Creatores
+## Creators
+(Alejandro Jimenez Regalon + Thibault Delfaud) x (awesomeness) = Disconnect
 
 ## What is Disconnect?
 Disconnect is an online app that helps you find the nearest musical events around you.
