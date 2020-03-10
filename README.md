@@ -3,7 +3,11 @@
 ## Project Name: 
 Disconnect
 
+<<<<<<< HEAD
+## Creatores
+=======
 ## Creators
+>>>>>>> d0080261c08c8828d24b7a2b6d47c0dcec777c3d
 (Alejandro Jimenez Regalon + Thibault Delfaud) x (awesomeness) = Disconnect
 
 ## What is Disconnect?
