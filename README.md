@@ -5,10 +5,6 @@ Disconnect
 
 <<<<<<< HEAD
 ## Creatores
-=======
-## Creators
->>>>>>> d0080261c08c8828d24b7a2b6d47c0dcec777c3d
-(Alejandro Jimenez Regalon + Thibault Delfaud) x (awesomeness) = Disconnect
 
 ## What is Disconnect?
 Disconnect is an online app that helps you find the nearest musical events around you.
