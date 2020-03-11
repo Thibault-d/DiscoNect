@@ -3,6 +3,13 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const SpotifyWebApi = require('spotify-web-api-node');
+
+var spotifyApi = new SpotifyWebApi({
+  clientId: 'cd0b194fb2b24c428ab881d81c27cf89',
+  clientSecret: '7057c30773294124a2ca86de32c75aeb',
+  redirectUri: 'index'
+});
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -36,5 +43,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
 
 module.exports = app;
