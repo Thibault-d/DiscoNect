@@ -6,4 +6,15 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
+router.get('/artists', function(req, res, next) {
+  res.render('artists/artists-search');
+});
+
+router.get('/artists-results', function(req, res, next) {
+  res.render('artist-result');
+});
+
+router.get('/artist-details', function(req, res, next) {
+  res.render('artist-details');
+});
 module.exports = router;
