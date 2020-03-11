@@ -11,10 +11,10 @@ router.get('/artists', function(req, res, next) {
 });
 
 router.get('/artists-results', function(req, res, next) {
-  res.render('artist-result');
+  res.render('artists/artists-results');
 });
 
 router.get('/artist-details', function(req, res, next) {
-  res.render('artist-details');
+  res.render('artists/artist-details');
 });
 module.exports = router;
