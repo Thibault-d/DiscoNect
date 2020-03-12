@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const SpotifyWebApi = require('spotify-web-api-node');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -8,6 +9,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/artists', function(req, res, next) {
   res.render('artists/artists-search');
+ 
 });
 
 router.get('/artists-results', function(req, res, next) {
