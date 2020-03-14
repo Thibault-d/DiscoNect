@@ -32,12 +32,19 @@ router.get("/search", (req, res, next) => {
     const searchString = req.query.search;
     spotifyApi.searchArtists(searchString)
         .then(function (data) {
-            res.render("artists/artists-results", data.body)
-            console.log(data.body)
-        }, function (err) {
-            console.error(err);
-        });
+                res.render("artists/artists-results", {
+                    results: data.body.artists.items
+                })
+            },
+            function (err) {
+                console.error(err);
+            });
 });
+
+router.get("/details", (req, res) => {
+    console.log(req.query);
+
+})
 
 
 module.exports = router;
