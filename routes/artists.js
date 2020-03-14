@@ -42,20 +42,18 @@ router.get("/search", (req, res, next) => {
 });
 
 router.get("/details/:id", (req, res) => {
-    const { id } = req.params;
-    console.log(id);
+    const {
+        id
+    } = req.params;
     spotifyApi.getArtist(id)
         .then(function (data) {
             res.render("artists/artists-details", {
                 details: data.body,
                 genre: data.body.genres,
             })
-            console.log('Artist information', data.body)
         }, function (err) {
             console.error(err);
         });
-
-
 })
 
 
