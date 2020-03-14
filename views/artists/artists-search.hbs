@@ -1,9 +1,14 @@
 <h1>Artist Search</h1>
-<p>Search bar goes here</p>
-<a href="/artists-results">
-    <h2>Search for your artist</h2>
-</a>
-
+<h2>Search for your artist</h2>
+<div>
+      <form action="/artists/search" method="GET">
+        <input type="text" id="search" name="search" placeholder="Search an artist" value="Jonathan wilson"><br>
+        <input type="submit" value="Search an artist">
+      </form>
+</div>
+<br>
+<br>
+<br>
 <p>List of top 10 popular artists goes here</p>
 <a href="/artist-details">
     <h2>Select any artist from the artist</h2>

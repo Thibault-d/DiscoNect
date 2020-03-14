@@ -5,12 +5,6 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const SpotifyWebApi = require('spotify-web-api-node');
 
-// Spotify connection
-const spotifyApi = new SpotifyWebApi({
-  clientId: process.env.CLIENT_ID,
-  clientSecret: process.env.CLIENT_SECRET,
-  redirectUri: 'index'
-});
 
 
 const indexRouter = require('./routes/index');

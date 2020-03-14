@@ -6,10 +6,4 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
-router.get('/artists', function(req, res, next) {
-  res.render('artists/artists-search');
- 
-});
-
-
 module.exports = router;
