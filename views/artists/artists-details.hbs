@@ -1,0 +1,15 @@
+<h1>Artist detail</h1>
+<h2>{{this.details.name}}</h2>
+<img src={{this.details.images.[2].url}} alt="">
+
+<br>Categories:
+<ul>
+    {{#each genre}}
+    <li>
+        {{this}}
+    </li>
+    {{/each}}
+</ul>
+
+Spotify Popularity score: {{this.details.popularity}}%
+

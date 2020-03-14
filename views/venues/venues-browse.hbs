@@ -1,0 +1,36 @@
+<h1>Browse the venues</h1>
+<p>Map of the city goes here</p>
+
+    <h2>Select a venue and see the events</h2>
+
+<div>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet" />
+    <style>
+        body {
+            margin:50;
+            padding: 50;
+        }
+
+        #map {
+            position: absolute;
+            top: 200;
+            bottom: 200;
+            width: 50%;
+            height: 50%;
+        }
+    </style>
+    </head>
+
+    <body>
+        <div id="map"></div>
+        <script>
+            mapboxgl.accessToken = 'pk.eyJ1IjoidGhpYmF1bHQtZGVsIiwiYSI6ImNrN3J2YjEzbDBnanozbW52NmJ1dHNjZHAifQ.UztpU78-MGwT2YgDsBCo5Q';
+            var map = new mapboxgl.Map({
+                container: 'map', // container id
+                style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+                center: [2.191063, 41.398460], // starting position [lng, lat]
+                zoom: 13 // starting zoom
+            });
+        </script>
+</div>

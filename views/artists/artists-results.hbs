@@ -1,0 +1,11 @@
+<h1>Artist Result</h1>
+
+<p>Results of your search, now select the corresponding artist from the list</p>
+
+<ul>
+  {{#each results}}
+  <li>
+    <a href="details/{{this.id}}">{{this.name}}</a>
+  </li>
+  {{/each }}
+</ul>
