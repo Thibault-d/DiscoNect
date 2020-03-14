@@ -21,7 +21,7 @@ router.get('/', function (req, res, next) {
             res.render('artists/artists-search', {
                 artists: data.body.tracks.items
             });
-            console.log(data.body.tracks.items[1].track.name);
+            console.log(data.body.tracks.items[1].track.artists[0].name);
         }, function (err) {
             console.log('Something went wrong!', err);
         });
