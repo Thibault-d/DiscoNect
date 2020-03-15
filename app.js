@@ -11,6 +11,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const artistsRouter = require('./routes/artists');
 const venuesRouter = require('./routes/venues');
+const signupRouter = require('./routes/signup');
 const app = express();
 
 // view engine setup
@@ -27,6 +28,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/artists', artistsRouter);
 app.use('/venues', venuesRouter);
+app.use('/signup', signupRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

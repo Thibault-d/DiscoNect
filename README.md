@@ -29,8 +29,8 @@ Disconnect is an online app that helps you find the nearest musical events aroun
 |    GET     |    /register |               Register page                   |
 |    POST    |    /register |               Send user and get the cookie    |
 |    GET     |    /artists  |               Artists page - search           |
-|    GET    |     /artists?search="string"  |  Search an artist by name     |
-|    GET     |    /artists?results=:id  |   Artists page - search           |
+|    GET    |     /artists/search?search="string"  |  Search an artist by name     |
+|    GET     |    /artists/details/=:id  |   Artists page - search           |
 |    GET     |    /venues |                 Venues page -                   | venues-browse.hbs
 |    GET    |    /venues/:id |             Get the venue                    | venues-browse.hbs
 |    GET    |    /venue/events/:id |        See all the events for one venue| venues-events.hbs
