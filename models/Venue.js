@@ -9,7 +9,7 @@ const venueSchema = new Schema({
     latitud:        {type: Number},
     picture:        {type: String, required: true},
     description:    {type: String, required: true},
-    id_partener:    {type: Number, required: true, unique: true}
+    id_partner:    {type: String, required: true, unique: true}
 });
 
 const Venue = mongoose.model('Venue', venueSchema);

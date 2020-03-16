@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "insert": "node ./bin/seeds",
+    "insertP": "node ./bin/seedsPartner",
+    "insertV": "node ./bin/seedsVenue",
     "start":  "node ./bin/www"
   },
   "dependencies": {

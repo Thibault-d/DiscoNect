@@ -19,11 +19,10 @@ mongoose
     console.log(partners);
 
     Partner.create(partners, err => {
-        if(err){
+        if(err)
             console.log("Error with the creations parnters")
-        }else{
+        else
             mongoose.connection.close();
-        }
     })
 
   })
