@@ -5,7 +5,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const SpotifyWebApi = require('spotify-web-api-node');
 require('dotenv').config();
-
+const bcrypt     = require("bcrypt");
+const saltRounds = 2;
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
