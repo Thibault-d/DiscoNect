@@ -3,13 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "insertP": "node ./bin/seedsPartner",
-    "insertV": "node ./bin/seedsVenue",
-    "insertU": "node ./bin/seedsUser",
-    "insertE": "node ./bin/seedsEvent",
-    "start": "node ./bin/www",
-    "start-dev": "nodemon ./bin/www",
-    "code": "node ./app"
+    "insertP":   "node ./bin/seedsPartner",
+    "insertV":   "node ./bin/seedsVenue",
+    "insertU":   "node ./bin/seedsUser",
+    "insertE":   "node ./bin/seedsEvent",
+    "start":     "node ./bin/www",
+    "start-dev": "nodemon ./bin/www"
   },
   "dependencies": {
     "bcrypt": "^4.0.1",

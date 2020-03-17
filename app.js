@@ -1,18 +1,34 @@
-const createError      = require('http-errors');
-const express          = require('express');
-const path             = require('path');
-const cookieParser     = require('cookie-parser');
-const logger           = require('morgan');
-const SpotifyWebApi    = require('spotify-web-api-node');
-const dotenv           = require('dotenv').config();
-//routes
-const indexRouter      = require('./routes/index');
-const usersRouter      = require('./routes/users');
-const artistsRouter    = require('./routes/artists');
-const venuesRouter     = require('./routes/venues');
-const signupRouter     = require('./routes/signup');
-const loginRouter      = require('./routes/login');
-const app              = express();
+const createError   = require('http-errors');
+const express       = require('express');
+const path          = require('path');
+const cookieParser  = require('cookie-parser');
+const logger        = require('morgan');
+const mongoose      = require('mongoose');
+const SpotifyWebApi = require('spotify-web-api-node');
+const dotenv        = require('dotenv').config();
+
+const indexRouter   = require('./routes/index');
+const usersRouter   = require('./routes/users');
+const artistsRouter = require('./routes/artists');
+const venuesRouter  = require('./routes/venues');
+const signupRouter  = require('./routes/signup');
+const loginRouter   = require('./routes/login');
+const app           = express();
+
+// routes
+const monogUrl      = 'mongodb+srv://alejandro:1234@cluster0-onpcf.mongodb.net/test?retryWrites=true&w=majority';
+const mongoLocal    = 'mongodb://localhost/disconnect';
+
+// Conexion with BD Mongo
+mongoose
+  .connect(monogUrl, {useNewUrlParser: true})
+  .then(x => {
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+  })
+  .catch(err => {
+    console.error('Error connecting to mongo', err)
+  });
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
