@@ -1,6 +1,7 @@
 const Partner       = require('../models/Partner');
 const mongoose      = require('mongoose');
-const monogUrl      = 'mongodb+srv://alejandro:1234@cluster0-onpcf.mongodb.net/test?retryWrites=true&w=majority';
+const monogUrl      = 'mongodb+srv://alejandro:1234@cluster0-onpcf.mongodb.net/disconnect-proyect?retryWrites=true&w=majority';
+const monogUrlTest  = 'mongodb+srv://alejandro:1234@cluster0-onpcf.mongodb.net/test?retryWrites=true&w=majority';
 const mongoLocal    = 'mongodb://localhost/disconnect';
 
 let partners = [

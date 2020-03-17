@@ -5,6 +5,7 @@
   "scripts": {
     "insertP": "node ./bin/seedsPartner",
     "insertV": "node ./bin/seedsVenue",
+    "insertU": "node ./bin/seedsUser",
     "start":  "node ./bin/www"
   },
   "dependencies": {
