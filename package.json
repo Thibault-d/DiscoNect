@@ -6,7 +6,10 @@
     "insertP": "node ./bin/seedsPartner",
     "insertV": "node ./bin/seedsVenue",
     "insertU": "node ./bin/seedsUser",
-    "start":  "node ./bin/www"
+    "insertE": "node ./bin/seedsEvent",
+    "start": "node ./bin/www",
+    "start-dev": "nodemon ./bin/www",
+    "code": "node ./app"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -15,10 +18,11 @@
     "express": "~4.16.1",
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
-    "mapbox": "^1.0.0-beta10",
     "mongoose": "^5.9.3",
     "morgan": "~1.9.1",
-    "nodemon": "^2.0.2",
     "spotify-web-api-node": "^4.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }

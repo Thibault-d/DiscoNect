@@ -82,7 +82,7 @@ Event model
         picture:        { Type: String, required: true }
         description:    { Type: String, required: true }
         date:           { Type: Date, required: true }
-        id_venue        { Type: ObjectId(...), required: true, unique: true}
+        id_venue:        { Type: ObjectId(...), required: true, unique: true}
         id_artists      { Type: Array }
     }
 
