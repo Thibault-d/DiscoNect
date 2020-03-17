@@ -21,7 +21,7 @@ const mongoLocal    = 'mongodb://localhost/disconnect';
 
 // Conexion with BD Mongo
 mongoose
-  .connect(monogUrl, {useNewUrlParser: true})
+  .connect(monogUrl, {useNewUrlParser: true} )
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
