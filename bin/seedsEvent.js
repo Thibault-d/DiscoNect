@@ -9,7 +9,7 @@ let events = [
         place: 'Sala 1',
         picture: 'https://lh5.googleusercontent.com/p/AF1QipOWv4QtCvt5gJ-fvux_sR9fObSKhF3mIVvWLX2R=w408-h272-k-no',
         description: 'Good Disco Good Disco Good Disco Good Disco Good Disco Good Disco Good Disco Good Disco',
-        date: 'Agosto 17, 2020 03:24:00',
+        date: '1552261496289',
         id_venue: '5e6fe2d806392753e646cb87',
         id_artist: []
     }

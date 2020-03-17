@@ -7,8 +7,8 @@ const eventSchema = new Schema({
     place:       {type: String, required: true},
     picture:     {type: String, required: true},
     description: {type: String, required: true},
-    date:        {type: date, required: true},
-    id_venue:    {type: Number, required: true, unique: true},
+    date:        {type: Date, required: true},
+    id_venue:    {type: String, required: true, unique: true},
     id_artists:  {type: Array}
 });
 
