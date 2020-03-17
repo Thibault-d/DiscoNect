@@ -18,21 +18,31 @@
         </style>
     </div>
 </head>
+<section>
+    <h1>Browse the venues</h1>
+    <p>Map of the city goes here</p>
+    <h2>Select a venue and see the events</h2>
+</section>
 
-<h1>Browse the venues</h1>
-<p>Map of the city goes here</p>
+<section class="sectionMap">
+    <div id="map" class="map">
+        <script>
+            mapboxgl.accessToken = 'pk.eyJ1IjoidGhpYmF1bHQtZGVsIiwiYSI6ImNrN3J2ZGFpbzBhMzczb21ycjNtamxjbmEifQ.H4jzajdc30ChH2RYLtkCzQ';
+            var map = new mapboxgl.Map({
+                container: 'map', // container id
+                style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+                center: [2.191063, 41.398460], // starting position [lng, lat]
+                zoom: 13 // starting zoom
+            });
+        </script>
+    </div>
 
-<h2>Select a venue and see the events</h2>
+    <div class="detailsVenue"> 
+        <h3> Name: </h3> {{venue.name}} 
+        <h3> place: </h3> {{venue.place}}
+        <br>
+        <img src="{{venue.picture}}"> 
+        <a href="/venue/events{{venues.id}}"> See all the Events </a>
+    </div>
+</section>
 
-<body>
-    <div id="map"></div>
-    <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoidGhpYmF1bHQtZGVsIiwiYSI6ImNrN3J2ZGFpbzBhMzczb21ycjNtamxjbmEifQ.H4jzajdc30ChH2RYLtkCzQ';
-        var map = new mapboxgl.Map({
-            container: 'map', // container id
-            style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-            center: [2.191063, 41.398460], // starting position [lng, lat]
-            zoom: 13 // starting zoom
-        });
-    </script>
-    </body>
