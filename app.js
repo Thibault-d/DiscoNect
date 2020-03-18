@@ -5,13 +5,14 @@ const cookieParser  = require('cookie-parser');
 const logger        = require('morgan');
 const mongoose      = require('mongoose');
 const SpotifyWebApi = require('spotify-web-api-node');
-require('dotenv').config();
+const dotenv        = require('dotenv').config();
 
 const indexRouter   = require('./routes/index');
 const usersRouter   = require('./routes/users');
 const artistsRouter = require('./routes/artists');
 const venuesRouter  = require('./routes/venues');
 const signupRouter  = require('./routes/signup');
+const loginRouter   = require('./routes/login');
 const app           = express();
 
 // routes
@@ -20,7 +21,7 @@ const mongoLocal    = 'mongodb://localhost/disconnect';
 
 // Conexion with BD Mongo
 mongoose
-  .connect(monogUrl, {useNewUrlParser: true})
+  .connect(monogUrl, {useNewUrlParser: true} )
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -44,6 +45,7 @@ app.use('/users', usersRouter);
 app.use('/artists', artistsRouter);
 app.use('/venues', venuesRouter);
 app.use('/signup', signupRouter);
+app.use('/login', loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
