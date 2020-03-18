@@ -5,8 +5,8 @@ const mongoLocal    = 'mongodb://localhost/disconnect';
 
 let events = [
     {
-        name: 'Techno',
-        place: 'Sala 1',
+        name: 'Techno1',
+        place: 'Sala2',
         picture: 'https://lh5.googleusercontent.com/p/AF1QipOWv4QtCvt5gJ-fvux_sR9fObSKhF3mIVvWLX2R=w408-h272-k-no',
         description: 'Good Disco Good Disco Good Disco Good Disco Good Disco Good Disco Good Disco Good Disco',
         date: '1552261496289',

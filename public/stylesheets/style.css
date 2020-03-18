@@ -17,3 +17,8 @@ a {
   float: right;
   height: 480px;
 }
+
+.sectionEvents{
+  width: 48%;
+  float: left;
+}

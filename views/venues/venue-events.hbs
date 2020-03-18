@@ -1,5 +1,15 @@
-<h1>Next concerts on this venue</h1>
-<p>List of concerts goes here</p>
-<a href="/venue-tickets">
-    <h2>Buy tickets for this concert</h2>
-</a>
+<section>
+    <h1>Next concerts on this venue</h1>
+    <p>List of concerts goes here</p>
+    <a href="/venue-tickets">
+        <h2>Buy tickets for this concert</h2>
+    </a>
+</section>
+
+<section class="sectionEvents"> 
+    {{#each events}}
+        <h1> Title: {{this.name}}</h1>
+        <img src="{{this.picture}}"> <br>
+        <a href="/venues/tickets/{{this._id}}"> Buy ticket </a>
+    {{/each}}
+</section>
