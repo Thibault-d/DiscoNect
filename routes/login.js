@@ -15,15 +15,38 @@ router.get('/', function (req, res, next) {
 router.post('/', function (req, res) {
     const name = req.body.name;
     const password = req.body.password;
-    Partner.findOne({"name": name})
-        .then(partner => {
-            if (partner !==null) {
-            console.log("user exists in the DB");}
+
+    if (name === "" || password === "") {
+        res.render("login/login", {
+            errorMessage: "Please enter both, username and password to sign up."
+        });
+        return;
+    }
+
+    Partner.findOne({
+            "name": name
+        })
+        .then(user => {
+            if (user == null) {
+                res.render("login/login", {
+                    errorMessage: "The username doesn't exist."
+                });
+                return;
+            }
+            if (bcrypt.compareSync(thePassword, user.password)) {
+                // Save the login in the session!
+                req.session.currentUser = user;
+                res.redirect("/");
+            } else {
+                res.render("auth/login", {
+                    errorMessage: "Incorrect password"
+                });
+            }
         })
         .catch(error => {
             next(error);
-          })
-})
+        })
+});
 
 
 module.exports = router;

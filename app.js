@@ -6,7 +6,12 @@ const logger        = require('morgan');
 const mongoose      = require('mongoose');
 const SpotifyWebApi = require('spotify-web-api-node');
 const dotenv        = require('dotenv').config();
+const session       = require("express-session");
+const MongoStore    = require("connect-mongo")(session);
+const bcrypt        = require("bcrypt");
+const saltRounds    = 10;
 
+// routes
 const indexRouter   = require('./routes/index');
 const usersRouter   = require('./routes/users');
 const artistsRouter = require('./routes/artists');
@@ -15,7 +20,7 @@ const signupRouter  = require('./routes/signup');
 const loginRouter   = require('./routes/login');
 const app           = express();
 
-// routes
+
 const monogUrl      = 'mongodb+srv://alejandro:1234@cluster0-onpcf.mongodb.net/test?retryWrites=true&w=majority';
 const mongoLocal    = 'mongodb://localhost/disconnect';
 
@@ -33,6 +38,17 @@ mongoose
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+app.use(session({
+  secret: "basic-auth-secret",
+  cookie: { maxAge: 60 * 1000 }, // 60 seconds
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    resave: true,
+    saveUninitialized: false,
+    ttl: 24 * 60 * 60 // 1 day
+  })
+}));
 
 app.use(logger('dev'));
 app.use(express.json());
