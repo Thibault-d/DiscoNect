@@ -21,12 +21,16 @@ const loginRouter   = require('./routes/login');
 const app           = express();
 
 
-const monogUrl      = 'mongodb+srv://alejandro:1234@cluster0-onpcf.mongodb.net/test?retryWrites=true&w=majority';
-const mongoLocal    = 'mongodb://localhost/disconnect';
+const monogUrl      = process.env.MONGO_URL;
+const mongoLocal    = process.env.MONGO_LOCAL_HOST;
 
 // Conexion with BD Mongo
 mongoose
-  .connect(monogUrl, {useNewUrlParser: true} )
+  .connect(monogUrl,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+  } )
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -39,16 +43,22 @@ mongoose
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+
+// Express session configuration
+app.set('trust proxy', 1) // trust first proxy
 app.use(session({
   secret: "basic-auth-secret",
-  cookie: { maxAge: 60 * 1000 }, // 60 seconds
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true, maxAge: 60 * 1000  },
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
     resave: true,
     saveUninitialized: false,
     ttl: 24 * 60 * 60 // 1 day
-  })
-}));
+  }),
+}))
+
 
 app.use(logger('dev'));
 app.use(express.json());
