@@ -8,8 +8,6 @@ const SpotifyWebApi = require('spotify-web-api-node');
 const dotenv        = require('dotenv').config();
 const session       = require("express-session");
 const MongoStore    = require("connect-mongo")(session);
-const bcrypt        = require("bcrypt");
-const saltRounds    = 10;
 
 // routes
 const indexRouter   = require('./routes/index');

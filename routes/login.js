@@ -1,6 +1,9 @@
-const express = require('express');
-const router = express.Router();
-const Partner = require("../models/Partner")
+const express       = require('express');
+const router        = express.Router();
+const Partner       = require("../models/Partner")
+const bcrypt        = require("bcrypt");
+const saltRounds    = 10;
+
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -12,7 +15,7 @@ router.get('/', function (req, res, next) {
 });
 
 
-router.post('/', function (req, res) {
+router.post('/', function (req, res, next) {
     const name = req.body.name;
     const password = req.body.password;
 
@@ -33,12 +36,14 @@ router.post('/', function (req, res) {
                 });
                 return;
             }
-            if (bcrypt.compareSync(thePassword, user.password)) {
+            if (bcrypt.compareSync(password, user.password)) {
                 // Save the login in the session!
                 req.session.currentUser = user;
                 res.redirect("/");
             } else {
-                res.render("auth/login", {
+                console.log(password);
+                res.render("login/login", {
+                   
                     errorMessage: "Incorrect password"
                 });
             }
