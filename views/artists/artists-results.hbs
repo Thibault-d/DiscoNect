@@ -2,10 +2,9 @@
 
 <p>Results of your search, now select the corresponding artist from the list</p>
 
-<ul>
-  {{#each results}}
-  <li>
-    <a href="details/{{this.id}}">{{this.name}}</a>
-  </li>
-  {{/each }}
-</ul>
+
+{{#each results}}
+
+<br><a href="details/{{this.id}}">{{this.name}}</a>
+<br><img src="{{this.images.[1].url}}">
+{{/each }}<br>

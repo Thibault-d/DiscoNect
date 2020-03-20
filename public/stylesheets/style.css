@@ -6,3 +6,19 @@ body {
 a {
   color: #00B7FF;
 }
+
+.map {
+  width: 40%;
+}
+
+.detailsVenue{
+  width: 40%;
+  background-color: lightgrey;
+  float: right;
+  height: 480px;
+}
+
+.sectionEvents{
+  width: 48%;
+  float: left;
+}

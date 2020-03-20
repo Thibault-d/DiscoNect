@@ -12,4 +12,16 @@
 </ul>
 
 Spotify Popularity score: {{this.details.popularity}}%
+<br>
+<br>
+<br>
+Top songs:
+<ul>
+    {{#each tracks}}
 
+        <p>{{this.name}}</p>
+        <audio controls id="track-audio">
+            <source src="{{this.preview_url}}" type="audio/ogg">
+        </audio>
+    {{/each}}
+</ul>

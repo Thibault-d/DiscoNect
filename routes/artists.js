@@ -32,6 +32,7 @@ router.get("/search", (req, res, next) => {
     const searchString = req.query.search;
     spotifyApi.searchArtists(searchString)
         .then(function (data) {
+            console.log(data.body.artists.items[0].images[0].url);
                 res.render("artists/artists-results", {
                     results: data.body.artists.items
                 })
@@ -42,20 +43,18 @@ router.get("/search", (req, res, next) => {
 });
 
 router.get("/details/:id", (req, res) => {
-    const {
-        id
-    } = req.params;
-    spotifyApi.getArtist(id)
-        .then(function (data) {
-            res.render("artists/artists-details", {
-                details: data.body,
-                genre: data.body.genres,
-            })
-        }, function (err) {
-            console.error(err);
-        });
+    const {id} = req.params;
+    Promise.all([
+        spotifyApi.getArtist(id),
+        spotifyApi.getArtistTopTracks(id, 'GB')
+    ]).then((data) =>{
+        console.log(data[0].body.images[1].url)
+        res.render("artists/artists-details", {
+            genre: data[0].body.genres,
+            details: data[0].body,
+            tracks: data[1].body.tracks
+        });    
+    }).catch(error => { return error })
 })
-
-
 
 module.exports = router;

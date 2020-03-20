@@ -1,22 +1,62 @@
-const createError = require('http-errors');
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
+const createError   = require('http-errors');
+const express       = require('express');
+const path          = require('path');
+const cookieParser  = require('cookie-parser');
+const logger        = require('morgan');
+const mongoose      = require('mongoose');
 const SpotifyWebApi = require('spotify-web-api-node');
-require('dotenv').config();
+const dotenv        = require('dotenv').config();
+const session       = require("express-session");
+const MongoStore    = require("connect-mongo")(session);
 
-
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+// routes
+const indexRouter   = require('./routes/index');
+const usersRouter   = require('./routes/users');
 const artistsRouter = require('./routes/artists');
-const venuesRouter = require('./routes/venues');
-const signupRouter = require('./routes/signup');
-const app = express();
+const venuesRouter  = require('./routes/venues');
+const signupRouter  = require('./routes/signup');
+const loginRouter   = require('./routes/login');
+const app           = express();
+
+
+const monogUrl      = process.env.MONGO_URL;
+const mongoLocal    = process.env.MONGO_LOCAL_HOST;
+
+// Conexion with BD Mongo
+mongoose
+  .connect(monogUrl,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+  } )
+  .then(x => {
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+  })
+  .catch(err => {
+    console.error('Error connecting to mongo', err)
+  });
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+
+// Express session configuration
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  secret: "basic-auth-secret",
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true, maxAge: 60 * 1000  },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    resave: true,
+    saveUninitialized: false,
+    ttl: 24 * 60 * 60 // 1 day
+  }),
+}))
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -29,6 +69,7 @@ app.use('/users', usersRouter);
 app.use('/artists', artistsRouter);
 app.use('/venues', venuesRouter);
 app.use('/signup', signupRouter);
+app.use('/login', loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
