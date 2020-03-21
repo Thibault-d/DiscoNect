@@ -1,34 +1,21 @@
 const express       = require('express');
 const router        = express.Router();
 const Partner       = require("../models/Partner")
+const session       = require("express-session");
+const MongoStore    = require("connect-mongo")(session);
 const bcrypt        = require("bcrypt");
 const saltRounds    = 10;
 
-
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    Partner.find()
-        .then(partner => {
-            console.log(partner);
-            res.render('login/login');
-        })
+    res.render('login/login');
 });
 
-
 router.post('/', function (req, res, next) {
-    const name = req.body.name;
+    const username = req.body.username;
     const password = req.body.password;
 
-    if (name === "" || password === "") {
-        res.render("login/login", {
-            errorMessage: "Please enter both, username and password to sign up."
-        });
-        return;
-    }
-
-    Partner.findOne({
-            "name": name
-        })
+    Partner.findOne({"username": username})
         .then(user => {
             if (user == null) {
                 res.render("login/login", {
@@ -41,9 +28,7 @@ router.post('/', function (req, res, next) {
                 req.session.currentUser = user;
                 res.redirect("/");
             } else {
-                console.log(password);
                 res.render("login/login", {
-                   
                     errorMessage: "Incorrect password"
                 });
             }

@@ -29,7 +29,6 @@ router.post('/', function (req, res, next) {
       }),
     ])
     .then(function (values) {
-      console.log(values);
       if (values[0] !== null) {
         res.render("login/signup", {
           errorMessage: "The Email already exists in the database"

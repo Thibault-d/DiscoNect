@@ -43,19 +43,8 @@ app.set('view engine', 'hbs');
 
 
 // Express session configuration
-app.set('trust proxy', 1) // trust first proxy
-app.use(session({
-  secret: "basic-auth-secret",
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true, maxAge: 60 * 1000  },
-  store: new MongoStore({
-    mongooseConnection: mongoose.connection,
-    resave: true,
-    saveUninitialized: false,
-    ttl: 24 * 60 * 60 // 1 day
-  }),
-}))
+// app.set('trust proxy', 1) // trust first proxy
+
 
 
 app.use(logger('dev'));
@@ -63,6 +52,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret: "basic-auth-secret",
+  resave: false,
+  saveUninitialized: true,
+  cookie: { 
+    // secure: true, 
+    maxAge: 60 * 1000  },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  }),
+}))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
