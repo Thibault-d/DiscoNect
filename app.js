@@ -16,6 +16,7 @@ const artistsRouter = require('./routes/artists');
 const venuesRouter  = require('./routes/venues');
 const signupRouter  = require('./routes/signup');
 const loginRouter   = require('./routes/login');
+const logoutRouter  = require('./routes/logout');
 const app           = express();
 
 
@@ -36,17 +37,11 @@ mongoose
     console.error('Error connecting to mongo', err)
   });
 
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-
 // Express session configuration
-// app.set('trust proxy', 1) // trust first proxy
-
-
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -57,9 +52,10 @@ app.use(session({
   secret: "basic-auth-secret",
   resave: false,
   saveUninitialized: true,
-  cookie: { 
+  cookie: {
     // secure: true, 
-    maxAge: 60 * 1000  },
+    maxAge: 60 * 1000
+  },
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
     ttl: 24 * 60 * 60 // 1 day
@@ -72,6 +68,7 @@ app.use('/artists', artistsRouter);
 app.use('/venues', venuesRouter);
 app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
+app.use('/logout', logoutRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

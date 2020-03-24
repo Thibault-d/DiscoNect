@@ -14,6 +14,18 @@ spotifyApi
     .then(data => spotifyApi.setAccessToken(data.body['access_token']))
     .catch(error => console.log('Something went wrong when retrieving an access token', error));
 
+
+
+router.use((req, res, next) => {
+    const redirect = req.url;
+    console.log(redirect)
+    if (req.session.currentUser) { // <== if there's user in the session (user is logged in)
+        next(); 
+    } else {
+        res.redirect("/login");
+    }
+});
+
 //Artists route, Search bar + display top 10 artists
 router.get('/', function (req, res, next) {
     spotifyApi.getPlaylist('37i9dQZF1DXbHcQpOiXk1D')
@@ -21,11 +33,13 @@ router.get('/', function (req, res, next) {
             res.render('artists/artists-search', {
                 artists: data.body.tracks.items
             });
-            console.log(data.body.tracks.items[1].track.artists[0].name);
         }, function (err) {
             console.log('Something went wrong!', err);
         });
 });
+
+
+
 
 //Artists Search result, select the artist you want
 router.get("/search", (req, res, next) => {
@@ -56,5 +70,6 @@ router.get("/details/:id", (req, res) => {
         });    
     }).catch(error => { return error })
 })
+
 
 module.exports = router;
