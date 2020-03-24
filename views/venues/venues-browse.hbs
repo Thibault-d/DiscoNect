@@ -24,24 +24,51 @@
     <h2>Select a venue and see the events</h2>
 </section>
 
+<section>
+    <form action="/venues" method="POST">
+        <div>
+          <label for="name">Name </label>
+          <input type="text" name="name"/>
+        </div>
+
+        <div>
+          <label for="address"> Adress </label>
+          <input type="text" name="address"/>
+        </div>
+
+        <div>
+          <label for="picture">Picture </label>
+          <input type="text" name="picture"/>
+        </div>
+
+        <div>
+          <label for="description">Description </label>
+          <input type="text" name="description"/>
+        </div>
+
+         <div>
+          <label for="id_partner">Id partner </label>
+          <input type="text" name="id_partner"/>
+        </div>
+
+        <button type="submit" value="submit">Submit</button>
+      </form>
+</section>
+<br>
+<h1> 
+</h1>
 <section class="sectionMap">
-    <div id="map" class="map">
-        <script>
-            mapboxgl.accessToken = 'pk.eyJ1IjoidGhpYmF1bHQtZGVsIiwiYSI6ImNrN3J2ZGFpbzBhMzczb21ycjNtamxjbmEifQ.H4jzajdc30ChH2RYLtkCzQ';
-            var map = new mapboxgl.Map({
-                container: 'map', // container id
-                style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-                center: [2.191063, 41.398460], // starting position [lng, lat]
-                zoom: 13 // starting zoom
-            });
-        </script>
-    </div>
+    <div id="map" class="map">    </div>
 
     <div class="detailsVenue"> 
         <h3> Name: </h3> {{venue.name}} 
         <h3> place: </h3> {{venue.place}}
         <img src="{{venue.picture}}"> 
-        <a href="/venues/events/{{venue._id}}"> See all the Events </a>
+        <a href="/venues/events/5e6fe2d806392753e646cb87"> See all the Events </a>
     </div>
 </section>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/js/map.js"></script>
+
 

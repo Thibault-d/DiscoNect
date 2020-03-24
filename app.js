@@ -18,6 +18,7 @@ const signupRouter  = require('./routes/signup');
 const loginRouter   = require('./routes/login');
 const logoutRouter  = require('./routes/logout');
 const app           = express();
+const APIRouter  = require('./routes/venues');
 
 
 const monogUrl      = process.env.MONGO_URL;
