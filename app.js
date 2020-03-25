@@ -17,8 +17,9 @@ const venuesRouter  = require('./routes/venues');
 const signupRouter  = require('./routes/signup');
 const loginRouter   = require('./routes/login');
 const logoutRouter  = require('./routes/logout');
+const partnerRouter = require('./routes/partner');
+const mapRouter     = require('./routes/map');
 const app           = express();
-const APIRouter  = require('./routes/venues');
 
 
 const monogUrl      = process.env.MONGO_URL;
@@ -70,6 +71,8 @@ app.use('/venues', venuesRouter);
 app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
+app.use('/partner', partnerRouter);
+app.use('/map', mapRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -86,8 +89,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-
-
 
 module.exports = app;

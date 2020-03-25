@@ -17,10 +17,7 @@ exports.getVenues = async (req, res, next) => {
 };*/
 
      //  ME DEVUELVE EN FORMADO UNDECODE ....
-// GET ALL THE VENUES FOR THE MAP
-exports.getVenues = (req, res, next) => {
-    res.render('venues/venues-browse');
-};
+
 
 
 /*
