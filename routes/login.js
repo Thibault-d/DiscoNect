@@ -9,7 +9,10 @@ const saltRounds    = 10;
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('login/login');
+    res.render('login/login',
+    {
+        style: 'login/login.css'
+    });
 });
 
 router.post('/', function (req, res, next) {
@@ -25,11 +28,8 @@ router.post('/', function (req, res, next) {
             })
         ])
         .then(values => {
-            if (values[0] && values[1] === null) {
-                res.render("login/signup", {
-                    errorMessage: "You username wasn't found in our Systems"
-                })
-            } else if (values[0] !== null) {
+            console.log(values)
+            if (values[0] !== null) {
                 if (bcrypt.compareSync(password, values[0].password)) {
                     // Save the login in the session!
                     req.session.currentUser = values[0];
@@ -48,8 +48,12 @@ router.post('/', function (req, res, next) {
                     res.render("login/login", {
                         errorMessage: "Incorrect password"
                     });
-                }
-            }
+                } 
+            } else {
+                res.render("login/login", {
+                    errorMessage: "You username wasn't found in our Systems"
+                })
+            }  
         })
 })
 module.exports = router;

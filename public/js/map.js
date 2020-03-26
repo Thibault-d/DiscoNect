@@ -11,24 +11,8 @@ var map = new mapboxgl.Map({
 
 function getVenues(){
 
-  let path = '/map/apiAll';
-
-  /*
-    // Se tendra que saber si esta registrado como un Partner o no
-    // el id tiene que ser el id del partner (partner._id)
-    //  hardcodeado seria asi
-    //  '/map/api/5e761dad9e515f485c2deb09'
-
-    if(isregister){
-      path = '/map/:id'
-    }else{
-      path = '/map/apiAll'
-    }
-
-    hardcodeado seria asi
-      '/map/api/5e761dad9e515f485c2deb09'
-  */
-
+  let path = '/map/identify';
+ 
   axios.get(path, {
       responseType: 'text'
   })
