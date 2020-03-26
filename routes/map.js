@@ -6,9 +6,11 @@ const Event   = require('../models/Event');
 
 // GET ALL THE VENUES (THE PARTNER IS NOT REGISTER)
   router.get('/apiAll', function (req, res, next){
+    console.log("user", req.session.currentUser);
     Venue.find()
     .then(venues => {
-      res.json(venues)
+      res.json(venues);
+
     })
     .catch(error => {
       next(error);

@@ -17,6 +17,7 @@ const venuesRouter    = require('./routes/venues');
 const signupRouter    = require('./routes/signup');
 const loginRouter     = require('./routes/login');
 const logoutRouter    = require('./routes/logout');
+const mapRouter       = require('./routes/map');
 const myaccountRouter = require('./routes/myaccount.js');
 const app             = express();
 const APIRouter       = require('./routes/venues');
@@ -71,6 +72,7 @@ app.use('/venues', venuesRouter);
 app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
+app.use('/map', mapRouter)
 app.use('/myaccount', myaccountRouter);
 
 // catch 404 and forward to error handler
