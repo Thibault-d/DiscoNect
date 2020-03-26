@@ -2,28 +2,47 @@ var express   = require('express');
 var router    = express.Router();
 const Venue   = require('../models/Venue');
 const Event   = require('../models/Event');
-const { getVenues, addVenue } = require('../controllers/venuesController');
 
-/*
-Obtener todos los datos para el mapa
-Luego el mapa debera de recojer todos los objetos venues.latitude/venues.altitude
 
-router.get('/', function (req, res, next) {
-   Venue.find()
-   .then(venues => {
-      console.log(venues);
-     res.render('venues/venues-browse', { venues });
-   })
-   .catch(error => {
-         next(error);
-       })
+router.use((req, res, next) => {
+  const redirect = req.url;
+  console.log(redirect)
+  if (req.session.currentUser) { // <== if there's user in the session (user is logged in)
+      next(); 
+  } else {
+      res.redirect("/login");
+  }
 });
-*/
-router
-  .route('/')
-  .get(getVenues)
-  .post(addVenue);
-  
+
+// ONLY GET THE VIEW VENUES 
+router.get('/', function (req, res, next) {
+  res.render('venues/venues-browse');
+});
+
+
+// POST A VENUE IN BD
+router.post('/', function (req, res, next) {
+  Venue.create(req.body)
+  .then(x => {
+    res.render('venues/venues-browse');
+  })
+  .catch(error => {
+    next(error);
+  })
+  /*
+  .catch(error => {
+      if(error.code === 11000) {
+        return res.status(400).json({ error: 'This venue already exists' });
+      } else {
+        res.status(500).json({ error: 'Server error' });
+      }
+   })
+  */
+});
+
+
+
+
 /*
 // FAKE DATE 
 router.get('/', function (req, res, next) {

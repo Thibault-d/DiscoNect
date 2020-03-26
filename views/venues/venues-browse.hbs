@@ -1,74 +1,44 @@
-<head>
-    <div>
-        <script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
-        <link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet" />
-        <style>
-            body {
-                margin: 50;
-                padding: 50;
-            }
+<div class="container">
+  <head>
+      <div>
+          <script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
+          <link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet" />
+          <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+          <style>
+              body {
+                  margin: 50;
+                  padding: 50;
+              }
 
-            #map {
-                position: absolute;
-                top: 200;
-                bottom: 200;
-                width: 50%;
-                height: 50%;
-            }
-        </style>
-    </div>
-</head>
-<section>
-    <h1>Browse the venues</h1>
-    <p>Map of the city goes here</p>
-    <h2>Select a venue and see the events</h2>
-</section>
+              #map {
+                  position: absolute;
+                  top: 200;
+                  bottom: 200;
+                  width: 50%;
+                  height: 50%;
+              }
+          </style>
+      </div>
+  </head>
+  <section>
+      <h1>Browse the venues</h1>
+      <p>Map of the city goes here</p>
+      <h2>Select a venue and see the events</h2>
+  </section>
 
-<section>
-    <form action="/venues" method="POST">
-        <div>
-          <label for="name">Name </label>
-          <input type="text" name="name"/>
-        </div>
+  <div>
+    <a class="btn" href="partner/create-event"> Crear Venue </a> </button>
+  </div>
 
-        <div>
-          <label for="address"> Adress </label>
-          <input type="text" name="address"/>
-        </div>
-
-        <div>
-          <label for="picture">Picture </label>
-          <input type="text" name="picture"/>
-        </div>
-
-        <div>
-          <label for="description">Description </label>
-          <input type="text" name="description"/>
-        </div>
-
-         <div>
-          <label for="id_partner">Id partner </label>
-          <input type="text" name="id_partner"/>
-        </div>
-
-        <button type="submit" value="submit">Submit</button>
-      </form>
-</section>
-<br>
-<h1> 
-</h1>
-<section class="sectionMap">
-    <div id="map" class="map">    </div>
-
-    <div class="detailsVenue"> 
-        <h3> Name: </h3> {{venue.name}} 
-        <h3> place: </h3> {{venue.place}}
-        <img src="{{venue.picture}}"> 
-        <a href="/venues/events/5e6fe2d806392753e646cb87"> See all the Events </a>
-    </div>
-</section>
-
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="/js/map.js"></script>
-
-
+  <br>
+  <section class="sectionMap">
+      <div id="map" class="map"></div>
+      <div class="detailsVenue"> 
+          <h3> Name: </h3> {{venue.name}} 
+          <h3> place: </h3> {{venue.place}}
+          <img src="{{venue.picture}}"> 
+          <a class="btn" href="/venues/events/5e6fe2d806392753e646cb87"> See all the Events </a>
+      </div>
+  </section>
+  <script src="/js/map.js"></script>
+</div>
