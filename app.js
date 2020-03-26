@@ -10,15 +10,16 @@ const session       = require("express-session");
 const MongoStore    = require("connect-mongo")(session);
 
 // routes
-const indexRouter   = require('./routes/index');
-const usersRouter   = require('./routes/users');
-const artistsRouter = require('./routes/artists');
-const venuesRouter  = require('./routes/venues');
-const signupRouter  = require('./routes/signup');
-const loginRouter   = require('./routes/login');
-const logoutRouter  = require('./routes/logout');
-const app           = express();
-const APIRouter  = require('./routes/venues');
+const indexRouter     = require('./routes/index');
+const usersRouter     = require('./routes/users');
+const artistsRouter   = require('./routes/artists');
+const venuesRouter    = require('./routes/venues');
+const signupRouter    = require('./routes/signup');
+const loginRouter     = require('./routes/login');
+const logoutRouter    = require('./routes/logout');
+const myaccountRouter = require('./routes/myaccount.js');
+const app             = express();
+const APIRouter       = require('./routes/venues');
 
 
 const monogUrl      = process.env.MONGO_URL;
@@ -70,6 +71,7 @@ app.use('/venues', venuesRouter);
 app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
+app.use('/myaccount', myaccountRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

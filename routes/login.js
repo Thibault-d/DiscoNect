@@ -1,6 +1,7 @@
 const express       = require('express');
 const router        = express.Router();
 const Partner       = require("../models/Partner")
+const User          = require("../models/User")
 const session       = require("express-session");
 const MongoStore    = require("connect-mongo")(session);
 const bcrypt        = require("bcrypt");
@@ -15,28 +16,40 @@ router.post('/', function (req, res, next) {
     const username = req.body.username;
     const password = req.body.password;
 
-    Partner.findOne({"username": username})
-        .then(user => {
-            if (user == null) {
-                res.render("login/login", {
-                    errorMessage: "The username doesn't exist."
-                });
-                return;
-            }
-            if (bcrypt.compareSync(password, user.password)) {
-                // Save the login in the session!
-                req.session.currentUser = user;
-                res.redirect("/");
-            } else {
-                res.render("login/login", {
-                    errorMessage: "Incorrect password"
-                });
+    Promise.all([
+            Partner.findOne({
+                "username": username
+            }),
+            User.findOne({
+                "username": username
+            })
+        ])
+        .then(values => {
+            if (values[0] && values[1] === null) {
+                res.render("login/signup", {
+                    errorMessage: "You username wasn't found in our Systems"
+                })
+            } else if (values[0] !== null) {
+                if (bcrypt.compareSync(password, values[0].password)) {
+                    // Save the login in the session!
+                    req.session.currentUser = values[0];
+                    res.redirect("/");
+                } else {
+                    res.render("login/login", {
+                        errorMessage: "Incorrect password"
+                    });
+                }
+            } else if (values[1] !== null) {
+                if (bcrypt.compareSync(password, values[1].password)) {
+                    // Save the login in the session!
+                    req.session.currentUser = values[1];
+                    res.redirect("/");
+                } else {
+                    res.render("login/login", {
+                        errorMessage: "Incorrect password"
+                    });
+                }
             }
         })
-        .catch(error => {
-            next(error);
-        })
-});
-
-
+})
 module.exports = router;
