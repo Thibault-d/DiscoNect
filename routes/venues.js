@@ -16,7 +16,9 @@ router.use((req, res, next) => {
 
 // ONLY GET THE VIEW VENUES 
 router.get('/', function (req, res, next) {
-  res.render('venues/venues-browse');
+  res.render('venues/venues-browse', {
+    style: 'venues/venues.css'
+  });
 });
 
 
@@ -90,12 +92,35 @@ router.get('/events/:id', function (req, res, next) {
     const { id } = req.params;
     Event.find({ id_venue: id})
       .then(events => {
-        res.render('venues/venue-events', { events });
+
+        res.render('venues/venue-events', { events, style: 'venues/venues.css' });
       })
       .catch(error => {
         next(error);
       })
 });
+
+// POST A VENUE IN BD
+router.post('/event', function (req, res, next) {
+  Venue.create(req.body)
+  .then(x => {
+    console.log(x);
+    res.render('venues/venues-browse');
+  })
+  .catch(error => {
+    next(error);
+  })
+  /*
+  .catch(error => {
+      if(error.code === 11000) {
+        return res.status(400).json({ error: 'This venue already exists' });
+      } else {
+        res.status(500).json({ error: 'Server error' });
+      }
+   })
+  */
+});
+
 
 router.get('/tickets/:id', function (req, res, next) {
     const { id } = req.params;

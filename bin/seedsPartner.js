@@ -8,6 +8,7 @@ let partners = [
     {
         name: "disconnect",
         surnames: "test 01",
+        username: "ale",
         email: "disconnect01@gmail.com",
         password: "1234"
     }

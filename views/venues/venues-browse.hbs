@@ -1,3 +1,4 @@
+<link rel='stylesheet' href='/stylesheets/{{style}}'/>
 <div class="container">
   <head>
       <div>
@@ -21,17 +22,21 @@
       </div>
   </head>
   <section>
-      <h1>Browse the venues</h1>
-      <p>Map of the city goes here</p>
-      <h2>Select a venue and see the events</h2>
+      <h1 class="title">Browse the venues</h1>
   </section>
-
-  <div>
-    <a class="btn" href="partner/create-event"> Crear Venue </a> </button>
+  <br>
+  <div class="sectionMap">
+      <div id="map" class="map"></div>
+      <div class="detailsVenue"> 
+          <h3> Name: </h3> Razzmataz
+          <h3> place: </h3> Carrer Nou de la Rambla, 113, 08004 Barcelona <br>
+          <img width="450px" height="250px" src="https://barcelonasecreta.com/wp-content/uploads/2018/10/1515607220782.jpg">  <br> <br> <br>
+          <a class="btn" href="/venues/events/5e6fe2d806392753e646cb87"> See all the Events </a>
+      </div>
   </div>
 
-  <br>
-  <section class="sectionMap">
+  <!--
+       <div class="sectionMap">
       <div id="map" class="map"></div>
       <div class="detailsVenue"> 
           <h3> Name: </h3> {{venue.name}} 
@@ -39,6 +44,12 @@
           <img src="{{venue.picture}}"> 
           <a class="btn" href="/venues/events/5e6fe2d806392753e646cb87"> See all the Events </a>
       </div>
-  </section>
+  </div>
+      -->
+
+  <div>
+    <a class="btn" href="partner/create-venue"> Crear Venue </a> </button>
+  </div>
+
   <script src="/js/map.js"></script>
 </div>
