@@ -47,14 +47,17 @@ Promise.all([
     } else {
       switch (usertype) {
         case "Visitor":
-          User.create({
+          req.session.currentUser = User.create({
               name,
               surnames,
               username,
               email,
               password: hashPass
             }) //Redirection route after you succesfully registered
-            .then(() => {
+            .then((x) => {
+              req.session.currentUser =x;
+              console.log(x);
+              res.cookie('type', 'visitor', { maxAge: 900000});
               res.redirect("/");
             })
             .catch(error => {
@@ -62,14 +65,17 @@ Promise.all([
             })
           break;
         case "Partner":
-          Partner.create({
+         Partner.create({
               name,
               surnames,
               username,
               email,
               password: hashPass
             }) //Redirection route after you succesfully registered
-            .then(() => {
+            .then((x) => {
+              req.session.currentUser =x;
+              console.log(x);
+              res.cookie('type', 'partner', { maxAge: 900000});
               res.redirect("/");
             })
             .catch(error => {

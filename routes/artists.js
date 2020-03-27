@@ -14,8 +14,6 @@ spotifyApi
     .then(data => spotifyApi.setAccessToken(data.body['access_token']))
     .catch(error => console.log('Something went wrong when retrieving an access token', error));
 
-
-
 router.use((req, res, next) => {
     const redirect = req.url;
     console.log(redirect)
@@ -26,20 +24,26 @@ router.use((req, res, next) => {
     }
 });
 
-//Artists route, Search bar + display top 10 artists
 router.get('/', function (req, res, next) {
-    spotifyApi.getPlaylist('37i9dQZF1DXbHcQpOiXk1D')
-        .then(function (data) {
-            res.render('artists/artists-search', {
-                artists: data.body.tracks.items
-            });
-        }, function (err) {
-            console.log('Something went wrong!', err);
-        });
-});
-
-
-
+    Promise.all([
+        spotifyApi.getArtist('73sIBHcqh3Z3NyqHKZ7FOL'),
+        spotifyApi.getArtist('4frXpPxQQZwbCu3eTGnZEw'),
+        spotifyApi.getArtist('4LLpKhyESsyAXpc4laK94U'),
+        spotifyApi.getArtist('2rspptKP0lPBdlJJAJHqht'),
+        spotifyApi.getArtist('1uiEZYehlNivdK3iQyAbye'),
+        spotifyApi.getArtist('2YZyLoL8N0Wb9xBt1NhZWg')
+     
+    ])
+    .then((data)=>{
+        console.log(data)
+        res.render('artists/artists-search',{
+            artists: data,
+            style: 'artists/search.css'
+        })
+    }), function (err) {
+        console.log('Something went wrong!', err);
+    };
+})
 
 //Artists Search result, select the artist you want
 router.get("/search", (req, res, next) => {
@@ -70,6 +74,5 @@ router.get("/details/:id", (req, res) => {
         });    
     }).catch(error => { return error })
 })
-
 
 module.exports = router;

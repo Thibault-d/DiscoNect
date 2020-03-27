@@ -1,18 +1,29 @@
-<h1>Artist Search</h1>
-<h2>Search for your artist</h2>
+<link rel='stylesheet' href='/stylesheets/{{style}}' />
+<h1>Find the artists you love</h1>
 <div>
   <form action="/artists/search" method="GET">
-    <input  type="text" id="search" name="search" placeholder="Search an artist" value="Thundercat"><br>
-    <input class="btn" type="submit" value="Search an artist">
+    <input type="text" id="search" name="search" placeholder="Search an artist" value=""><br>
+    <input class="btn" type="submit" value="Search">
   </form>
 </div>
 <br>
 <br>
 <br>
 
-<p>List of top 10 popular artists goes here</p>
-<ul>
+
+
+<h1>Or find new hot artists</h1>
+
+<div class="container-artists">
   {{#each artists}}
-  <li>{{this.track.artists.[0].name}}</li>
-  {{/each }}
-</ul>
+  <div class="gallery">
+    <a class="gallery-item" href="artists/details/{{this.body.id}}">
+      <img src="{{this.body.images.[0].url}}" alt="artist">
+      <span class="text-wrapper">
+        <span class="name">{{this.body.name}}</span>
+      </span>
+    </a>
+
+  </div>
+  {{/each}}
+</div>

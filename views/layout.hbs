@@ -8,15 +8,14 @@
 </head>
 <header class="container">
   <nav class="nav">
-
     <a class="links" id="home" href="/">Home</a>
     <a class="links" id="artists" href="/artists">Artists</a>
     <a class="links" id="venues" href="/venues">Venues</a>
     <a class="links" id="login" href="/login">login</a>
     <a class="links" id="signup" href="/signup">Sign-up</a>
-    <a class="links" id="logout" href="/logout">logout</a>
     <a class="links" id="partnerspace" href="">Partner Space</a>
     <a class="links" id="myaccount" href="/myaccount">My Account</a>
+    <a class="links" id="logout" href="/logout">logout</a>
   </nav>
 </header>
 <h3 class="line"> </h3>
@@ -28,6 +27,7 @@
 </html>
 
 <script>
+  //personalize the menu depending on current loggin state
   var x = document.cookie;
   console.log(x)
   switch (x) {
@@ -45,6 +45,4 @@
       document.getElementById("myaccount").style.display = "none";
       document.getElementById("partnerspace").style.display = "none";
   }
-
-
 </script>
