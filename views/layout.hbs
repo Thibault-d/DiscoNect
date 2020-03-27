@@ -9,14 +9,14 @@
 <header class="container">
   <nav class="nav">
 
-    <a class="links" href="/">Home</a>
-    <a class="links" href="/artists">Artists</a>
-    <a class="links" href="/venues">Venues</a>
-    <a class="links" href="/login">login</a>
-    <a class="links" href="/signup">Sign-up</a>
-    <a class="links" href="/logout">logout</a>
-    <a class="links" href="">Partner Space</a>
-    <a class="links" href="/myaccount">My Account</a>
+    <a class="links" id="home" href="/">Home</a>
+    <a class="links" id="artists" href="/artists">Artists</a>
+    <a class="links" id="venues" href="/venues">Venues</a>
+    <a class="links" id="login" href="/login">login</a>
+    <a class="links" id="signup" href="/signup">Sign-up</a>
+    <a class="links" id="logout" href="/logout">logout</a>
+    <a class="links" id="partnerspace" href="">Partner Space</a>
+    <a class="links" id="myaccount" href="/myaccount">My Account</a>
   </nav>
 </header>
 <h3 class="line"> </h3>
@@ -26,3 +26,25 @@
 </body>
 
 </html>
+
+<script>
+  var x = document.cookie;
+  console.log(x)
+  switch (x) {
+    case "type=partner":
+      document.getElementById("login").style.display = "none";
+      document.getElementById("signup").style.display = "none";
+      break;
+    case "type=visitor":
+      document.getElementById("login").style.display = "none";
+      document.getElementById("signup").style.display = "none";
+      document.getElementById("partnerspace").style.display = "none";
+      break;
+    default:
+      document.getElementById("logout").style.display = "none";
+      document.getElementById("myaccount").style.display = "none";
+      document.getElementById("partnerspace").style.display = "none";
+  }
+
+
+</script>
