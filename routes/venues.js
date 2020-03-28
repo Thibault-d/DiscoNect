@@ -16,9 +16,7 @@ router.use((req, res, next) => {
 
 // ONLY GET THE VIEW VENUES 
 router.get('/', function (req, res, next) {
-  res.render('venues/venues-browse', {
-    style: 'venues/venues.css'
-  });
+  res.render('venues/venues-browse');
 });
 
 
