@@ -71,9 +71,8 @@ router.get("/details/:id", (req, res) => {
             genre: data[0].body.genres,
             details: data[0].body,
             tracks: select,
-            event:data[2][0]
+            event:data[2]
         });    
-        console.log(data[2][0].name)
     })
     .catch(error => { return error })
 })

@@ -16,11 +16,14 @@
         </div>
     </div>
     <div class="event-containers">
-       <h1> Upcoming events with {{this.details.name}}</h1>
-      <p>{{event.name}} </p> 
-       <a href="">Buy Tickets</a>
-
+        <h2> Upcoming events</h2>
+        {{#each event}}
+        <div class="event"></div>
+        <p>{{this.name}} </p>
+        <p><a href="">Buy Tickets</a></p>
+        {{/each}}
     </div>
+</div>
 </div>
 <br>
 

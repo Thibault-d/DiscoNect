@@ -2,7 +2,7 @@
     margin: 50px;
     display: flex;
     font-size: 1.2em;
-
+    height: 160px;
 }
 
 .artist-details {
@@ -26,7 +26,7 @@
     flex-wrap: wrap;
     color: white;
     justify-content: center;
-    background-color:#777779 ;
+    background-color: #777779;
     margin-left: 50px;
     margin-right: 50px;
 }
@@ -40,7 +40,16 @@ h2 {
     text-align: center;
 }
 
-.event-containers{
-margin-left: 100px;
-
+.event-containers {
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+    padding-left:20px;
 }
+
+.event {
+ 
+    display: flex;
+    flex-direction: column;
+}
+
