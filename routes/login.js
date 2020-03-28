@@ -33,7 +33,7 @@ router.post('/', function (req, res, next) {
                 if (bcrypt.compareSync(password, values[0].password)) {
                     // Save the login in the session!
                     req.session.currentUser = values[0];
-                    res.cookie('type', 'partner', { maxAge: 900000});
+                    res.cookie('type', 'partner', { maxAge: 90000000});
                     res.redirect("/");
                 } else {
                     res.render("login/login", {
@@ -44,7 +44,7 @@ router.post('/', function (req, res, next) {
                 if (bcrypt.compareSync(password, values[1].password)) {
                     // Save the login in the session!
                     req.session.currentUser = values[1];
-                    res.cookie('type', 'visitor', { maxAge: 900000});
+                    res.cookie('type', 'visitor', { maxAge: 90000000});
                     res.redirect("/");
                 } else {
                     res.render("login/login", {

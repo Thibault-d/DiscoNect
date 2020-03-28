@@ -5,14 +5,21 @@ const mongoLocal    = 'mongodb://localhost/disconnect';
 
 let events = [
     {
-        name: 'Techno1',
-        place: 'Sala2',
-        picture: 'https://lh5.googleusercontent.com/p/AF1QipOWv4QtCvt5gJ-fvux_sR9fObSKhF3mIVvWLX2R=w408-h272-k-no',
-        description: 'Good Disco Good Disco Good Disco Good Disco Good Disco Good Disco Good Disco Good Disco',
+        name: 'Concierto',
+        place: 'Sala 2',
+        description: 'Childish Gambino in concert, he just released his new album',
         date: '1552261496289',
         id_venue: '5e6fe2d806392753e646cb87',
-        id_artist: []
-    }
+        id_artists: ["73sIBHcqh3Z3NyqHKZ7FOL"]
+    },
+    {
+      name: 'Festival',
+      place: 'Open air',
+      description: 'Childish Gambino, Thundercat and Mac Miller are joining forces for this unique event. Get your groove on!',
+      date: '1552261496289',
+      id_venue: '1b6fe2d206392743e646ab65',
+      id_artists: ["73sIBHcqh3Z3NyqHKZ7FOL", "4frXpPxQQZwbCu3eTGnZEw","4LLpKhyESsyAXpc4laK94U" ]
+  }
 ];
 
 mongoose
