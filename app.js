@@ -11,7 +11,6 @@ const MongoStore    = require("connect-mongo")(session);
 
 // routes
 const indexRouter     = require('./routes/index'); 
-const usersRouter     = require('./routes/users');
 const artistsRouter   = require('./routes/artists');
 const venuesRouter    = require('./routes/venues');
 const signupRouter    = require('./routes/signup');
@@ -67,7 +66,6 @@ app.use(session({
 }))
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/artists', artistsRouter);
 app.use('/venues', venuesRouter);
 app.use('/signup', signupRouter);
