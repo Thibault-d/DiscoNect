@@ -38,26 +38,33 @@ function getVenues(){
   });
 
   function loadMap(venues) {
+
     map.on('load', function() {
-      map.addLayer({
-        id: 'points',
-        type: 'symbol',
-        source: {
-          type: 'geojson',
-          data: {
-            type: 'FeatureCollection',
-            features: venues
-          }
-        },
-        layout: {
-          'icon-image': '{icon}-15',
-          'icon-size': 1.5,
-          'text-field': '{storeId}',
-          'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-          'text-offset': [0, 0.9],
-          'text-anchor': 'top'
-        }
-      });
+
+      map.loadImage(
+        '/img/icon.png',
+        function(error, image) {
+          map.addImage('cat',image)
+          map.addLayer({
+            id: 'points',
+            type: 'symbol',
+            source: {
+              type: 'geojson',
+              data: {
+                type: 'FeatureCollection',
+                features: venues
+              }
+            },
+            layout: {
+              'icon-image': 'cat',
+              'icon-size': 0.2,
+              'text-field': '{storeId}',
+              'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+              'text-offset': [0, 1.9],
+              'text-anchor': 'bottom'
+            }
+          });
+        });
     });
   }
 

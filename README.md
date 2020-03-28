@@ -104,5 +104,5 @@ Event model
 TRELLO  -  https://trello.com/b/PiHqKdYY <BR>
 GITHUB  -  https://github.com/Thibault-d/Disconnect <br>
 HEROKU  -  https://ironhack-disconnect.herokuapp.com/<br>
-SLIDES  -   ... <br>
-MOCKUPS - https://app.moqups.com/r10YTb0erF/view/page/aa9df7b72 <BR>
+SLIDES  -  https://docs.google.com/presentation/d/118HRALQL7AigMKlpZVq_npkQ-6iBY-kXiT-nrSYyZLo/edit?usp=sharing <br>
+MOCKUPS -  https://app.moqups.com/r10YTb0erF/view/page/aa9df7b72 <BR>

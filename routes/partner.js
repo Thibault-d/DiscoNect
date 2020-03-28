@@ -1,7 +1,6 @@
 var express   = require('express');
 var router    = express.Router();
-const Venue   = require('../models/Venue');
-const Event   = require('../models/Event');
+const Artist = require('../models/Artist');
 
 // VIEW THE FORM FOR CREATE A VENUE IF YOU ARE A PARTNER
 router.get('/create-venue', function (req, res, next) {
@@ -12,9 +11,15 @@ router.get('/create-venue', function (req, res, next) {
 
 // VIEW THE FORM FOR CREATE A EVENT IF YOU ARE A PARTNER
 router.get('/create-event', function (req, res, next) {
-    res.render('partner/create-event', {
-      style: 'venues/venues.css'
-    });
+    Artist.find()
+    .then(artists => {
+      res.render('partner/create-event', {
+        style: 'venues/venues.css', artists
+      });
+    })
+    .catch(error => {
+      next(error);
+    })
   });
 
 module.exports = router;
