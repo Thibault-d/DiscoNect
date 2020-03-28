@@ -51,7 +51,7 @@ router.post('/event', function (req, res, next) {
   Event.create(req.body)
   .then(x => {
     console.log(x);
-    res.render('venues/event-browse');
+    res.render('venues/venues-browse');
   })
   .catch(error => {
     next(error);

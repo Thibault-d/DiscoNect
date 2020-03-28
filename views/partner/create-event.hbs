@@ -1,4 +1,4 @@
-<link rel='stylesheet' href='/stylesheets/{{style}}'/>
+<link rel='stylesheet' href='/stylesheets/venues/venues.css'/>
 <br>
 <br>
 
@@ -24,14 +24,17 @@
           <input type="text" name="date"/>
         </div>
 
+        <input type="hidden" name="id_venue" value="{{id}}"/>
+
+        <select id="id_artists" name="id_artists" multiple>
+          {{#each artists}}
+            <option value="{{this.spotifyid}}"> {{this.name}} </option>
+          {{/each}} 
+        </select>
+
         <button type="submit" value="submit">Submit</button>
       </form>
 </section>
 
 
 
-{{#each artists}}
-          <h1> Name: {{this.name}}</h1>
-          <img src="{{this.image}}"> <br>
-          <!-- <a href="/venues/artists/{{this.spotifyid}}"> Buy ticket </a> -->
-{{/each}}
