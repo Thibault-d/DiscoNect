@@ -16,9 +16,7 @@ router.use((req, res, next) => {
 
 // ONLY GET THE VIEW VENUES 
 router.get('/', function (req, res, next) {
-  res.render('venues/venues-browse', {
-    style: 'venues/venues.css'
-  });
+  res.render('venues/venues-browse');
 });
 
 
@@ -93,7 +91,7 @@ router.get('/events/:id', function (req, res, next) {
     Event.find({ id_venue: id})
       .then(events => {
 
-        res.render('venues/venue-events', { events, style: 'venues/venues.css' });
+        res.render('venues/venue-events');
       })
       .catch(error => {
         next(error);

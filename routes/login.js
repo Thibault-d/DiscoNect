@@ -9,10 +9,7 @@ const saltRounds    = 10;
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('login/login',
-    {
-        style: 'login/login.css'
-    });
+    res.render('login/login');
 });
 
 router.post('/', function (req, res, next) {

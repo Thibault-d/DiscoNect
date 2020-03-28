@@ -5,16 +5,12 @@ const Event   = require('../models/Event');
 
 // VIEW THE FORM FOR CREATE A VENUE IF YOU ARE A PARTNER
 router.get('/create-venue', function (req, res, next) {
-  res.render('partner/create-venue', {
-    style: 'venues/venues.css'
-  });
+  res.render('partner/create-venue');
 });
 
 // VIEW THE FORM FOR CREATE A EVENT IF YOU ARE A PARTNER
 router.get('/create-event', function (req, res, next) {
-    res.render('partner/create-event', {
-      style: 'venues/venues.css'
-    });
+    res.render('partner/create-event');
   });
 
 module.exports = router;

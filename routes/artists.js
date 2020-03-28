@@ -1,6 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var SpotifyWebApi = require('spotify-web-api-node');
+var express             = require('express');
+var router              = express.Router();
+var SpotifyWebApi       = require('spotify-web-api-node');
+const Event             = require("../models/Event")
 
 // Spotify connection
 var spotifyApi = new SpotifyWebApi({
@@ -32,13 +33,10 @@ router.get('/', function (req, res, next) {
         spotifyApi.getArtist('2rspptKP0lPBdlJJAJHqht'),
         spotifyApi.getArtist('1uiEZYehlNivdK3iQyAbye'),
         spotifyApi.getArtist('2YZyLoL8N0Wb9xBt1NhZWg')
-     
     ])
     .then((data)=>{
-        console.log(data)
         res.render('artists/artists-search',{
             artists: data,
-            style: 'artists/search.css'
         })
     }), function (err) {
         console.log('Something went wrong!', err);
@@ -50,7 +48,6 @@ router.get("/search", (req, res, next) => {
     const searchString = req.query.search;
     spotifyApi.searchArtists(searchString)
         .then(function (data) {
-            console.log(data.body.artists.items[0].images[0].url);
                 res.render("artists/artists-results", {
                     results: data.body.artists.items
                 })
@@ -64,15 +61,21 @@ router.get("/details/:id", (req, res) => {
     const {id} = req.params;
     Promise.all([
         spotifyApi.getArtist(id),
-        spotifyApi.getArtistTopTracks(id, 'GB')
+        spotifyApi.getArtistTopTracks(id, 'GB'),
+        Event.find({
+            id_artists: { $all: [id] } 
+       })
     ]).then((data) =>{
-        console.log(data[0].body.images[1].url)
+        const select = data[1].body.tracks.slice(0,3);
         res.render("artists/artists-details", {
             genre: data[0].body.genres,
             details: data[0].body,
-            tracks: data[1].body.tracks
+            tracks: select,
+            event:data[2][0]
         });    
-    }).catch(error => { return error })
+        console.log(data[2][0].name)
+    })
+    .catch(error => { return error })
 })
 
 module.exports = router;
