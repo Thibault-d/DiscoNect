@@ -10,8 +10,7 @@ const session       = require("express-session");
 const MongoStore    = require("connect-mongo")(session);
 
 // routes
-const indexRouter     = require('./routes/index');
-const usersRouter     = require('./routes/users');
+const indexRouter     = require('./routes/index'); 
 const artistsRouter   = require('./routes/artists');
 const venuesRouter    = require('./routes/venues');
 const signupRouter    = require('./routes/signup');
@@ -58,16 +57,15 @@ app.use(session({
   saveUninitialized: true,
   cookie: {
     // secure: true, 
-    maxAge: 60 * 1000
+    maxAge: 24 * 60 * 60 * 10000// 1 day
   },
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
-    ttl: 24 * 60 * 60 // 1 day
+    ttl: 24 * 60 * 60 * 10000 // 1 day
   }),
 }))
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/artists', artistsRouter);
 app.use('/venues', venuesRouter);
 app.use('/signup', signupRouter);

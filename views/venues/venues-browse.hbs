@@ -1,54 +1,27 @@
-<link rel='stylesheet' href='/stylesheets/{{style}}'/>
+<link rel='stylesheet' href='/stylesheets/venues/browse.css'/>
+
 <div class="container">
+    
   <head>
       <div>
           <script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
           <link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet" />
           <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-          <style>
-              body {
-                  margin: 50;
-                  padding: 50;
-              }
-
-              #map {
-                  position: absolute;
-                  top: 200;
-                  bottom: 200;
-                  width: 50%;
-                  height: 50%;
-              }
-          </style>
       </div>
   </head>
+
   <section>
-      <h1 class="title">Browse the venues</h1>
-  </section>
-  <br>
+      <div>
+        <h1 class="title">Browse the venues</h1>
+      </div>
+      <div>
+          <a class="btn" href="partner/create-venue"> Add a Venue </a> </button>
+        <!-- <a class="btn" href="partner/create-venue/{{id}}"> Add Venue </a> </button> -->
+      </div>
+  </section> <br>
+
   <div class="sectionMap">
       <div id="map" class="map"></div>
-      <div class="detailsVenue"> 
-          <h3> Name: </h3> Razzmataz
-          <h3> place: </h3> Carrer Nou de la Rambla, 113, 08004 Barcelona <br>
-          <img width="450px" height="250px" src="https://barcelonasecreta.com/wp-content/uploads/2018/10/1515607220782.jpg">  <br> <br> <br>
-          <a class="btn" href="/venues/events/5e6fe2d806392753e646cb87"> See all the Events </a>
-      </div>
-  </div>
-
-  <!--
-       <div class="sectionMap">
-      <div id="map" class="map"></div>
-      <div class="detailsVenue"> 
-          <h3> Name: </h3> {{venue.name}} 
-          <h3> place: </h3> {{venue.place}}
-          <img src="{{venue.picture}}"> 
-          <a class="btn" href="/venues/events/5e6fe2d806392753e646cb87"> See all the Events </a>
-      </div>
-  </div>
-      -->
-
-  <div>
-    <a class="btn" href="partner/create-venue"> Crear Venue </a> </button>
   </div>
 
   <script src="/js/map.js"></script>

@@ -1,8 +1,17 @@
-  .map {
-    width: 40%;
+  body {
+    margin: 50;
+    padding: 50;
   }
 
-  .detailsVenue{
+  #map {
+    position: absolute;
+    top: 200;
+    bottom: 200;
+    width: 90%;
+    height: 70%;
+  }
+
+  .detailsVenue {
     width: 40%;
     float: right;
     height: 456px;
@@ -13,30 +22,26 @@
     padding: 10px;
   }
 
-  .sectionEvents{
+  .sectionEvents {
     width: 48%;
     float: left;
   }
-  
-  .line {
-    height: 3px;
-    background-color: black;
-  }
-  
+
+
   .container {
     width: 90%;
     margin-right: auto;
     margin-left: auto;
   }
-  
+
   .inLine {
     display: flex;
   }
-  
-  .col50 { 
+
+  .col50 {
     width: 50%;
   }
-  
+
   .btn {
     color: #fff !important;
     text-transform: uppercase;
@@ -47,16 +52,35 @@
     display: inline-block;
     border: none;
     transition: all 0.4s ease 0s;
-  } 
-
-  .title{
-      padding: 30px 0px 20px 10px;
   }
 
-  .sectionMap{
-      height: 496px;
+  .title {
+    padding: 30px 0px 20px 10px;
   }
 
-  .centerText{
-      text-align: center;
+  .sectionMap {
+    height: 696px;
+  }
+
+
+  .centerText {
+    text-align: center;
+    display: flex;
+  }
+
+  .btnVenue{
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #0099BC;
+    padding: 10px;
+    margin-left: 36px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+  }
+  
+  .widthParms{
+    width: 200px;
   }

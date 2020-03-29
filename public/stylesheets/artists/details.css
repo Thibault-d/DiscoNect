@@ -1,0 +1,65 @@
+.artist-container {
+    margin: 50px;
+    display: flex;
+    font-size: 1.2em;
+}
+
+.artist-details {
+    margin-left: 20px;
+}
+.artist-container > img{
+   height: 160px;
+}
+
+.categories-container {
+    display: flex;
+}
+
+.categories {
+    border-style: solid;
+    margin-left: 0px;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.event-container {
+    display: flex;
+    flex-direction: line;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: center;
+}
+
+.event {
+    display: flex;
+    flex-direction: column;
+    border-style: solid;
+    width: 250px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    padding:10px;
+}
+
+.event>p::before {
+    content: "\A";
+    white-space: pre;
+}
+
+.tracks-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+}
+
+.tracks{
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+}

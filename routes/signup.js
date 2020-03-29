@@ -57,7 +57,7 @@ Promise.all([
             .then((x) => {
               req.session.currentUser =x;
               console.log(x);
-              res.cookie('type', 'visitor', { maxAge: 900000});
+              res.cookie('type', 'visitor', { maxAge: 90000000});
               res.redirect("/");
             })
             .catch(error => {

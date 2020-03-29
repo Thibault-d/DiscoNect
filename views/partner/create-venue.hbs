@@ -1,34 +1,32 @@
-<link rel='stylesheet' href='/stylesheets/{{style}}'/>
+
+<link rel='stylesheet' href='/stylesheets/partner/venue.css'/>
 <br>
 <br>
 
-<section>
-    <form action="/venues/event" method="POST">
-        <div class="centerText">
-          <label for="name">Name </label>
+<section class="form" >
+    <form action="/venues" method="POST">
+        <div class="centerText firstParam">
+          <label class="widthParms" for="name">Name </label>
           <input type="text" name="name"/>
-        </div>
+        </div> <br>
 
         <div class="centerText">
-          <label for="address"> Adress </label>
+          <label class="widthParms" for="address"> Adress </label>
           <input type="text" name="address"/>
-        </div>
+        </div> <br>
 
         <div class="centerText">
-          <label for="picture">Picture </label>
+          <label class="widthParms" for="picture">Picture </label>
           <input type="text" name="picture"/>
-        </div>
+        </div> <br>
 
         <div class="centerText">
-          <label for="description">Description </label>
+          <label class="widthParms" for="description">Description </label>
           <input type="text" name="description"/>
-        </div>
+        </div> <br>
 
-         <div class="centerText">
-          <label for="id_partner">Id partner </label>
-          <input type="text" name="id_partner"/>
-        </div>
+        <input type="hidden" name="id_partner" value="5e7e75c93cf99c2a5337ff33"/>
 
-        <button type="submit" value="submit">Submit</button>
+        <button class="btnSubmit btn" type="submit" value="submit">Submit</button>
       </form>
 </section>

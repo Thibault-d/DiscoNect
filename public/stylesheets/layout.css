@@ -20,8 +20,8 @@
 }
 
 .nav .links:hover {
+   font-weight: bold;
     color: #F4F7F6;
     background-color: #202121;
 }
-
 

@@ -3,7 +3,7 @@ var router    = express.Router();
 const Venue   = require('../models/Venue');
 const Event   = require('../models/Event');
 
-
+// TEST IF YOU ARE A PARTNER OR A CLIENT
 router.use((req, res, next) => {
   const redirect = req.url;
   console.log(redirect)
@@ -16,9 +16,8 @@ router.use((req, res, next) => {
 
 // ONLY GET THE VIEW VENUES 
 router.get('/', function (req, res, next) {
-  res.render('venues/venues-browse', {
-    style: 'venues/venues.css'
-  });
+  // NECESITO RECOJER EL ID DEL PARTNER REGISTRADO PARA PODER HACER UN ADD SIN PEDIRLO
+  res.render('venues/venues-browse');
 });
 
 
@@ -29,54 +28,38 @@ router.post('/', function (req, res, next) {
     res.render('venues/venues-browse');
   })
   .catch(error => {
-    next(error);
-  })
-  /*
-  .catch(error => {
       if(error.code === 11000) {
         return res.status(400).json({ error: 'This venue already exists' });
       } else {
         res.status(500).json({ error: 'Server error' });
       }
    })
-  */
 });
 
-
-
-
-/*
-// FAKE DATE 
-router.get('/', function (req, res, next) {
-   Venue.findById('5e6fe2d806392753e646cb87')
-   .then(venue => {
-     res.render('venues/venues-browse', { venue });
-   })
-   .catch(error => {
+// GET THE VIEW OF THE EVENTS (ONE PARTNER)
+router.get('/events/:id', function (req, res, next) {
+  const { id } = req.params;
+  Event.find({ id_venue: id})
+    .then(events => {
+      console.log('------------------id-----------------' + id)
+      res.render('venues/venue-events', { events, style: 'venues/venues.css', id });
+    })
+    .catch(error => {
       next(error);
     })
 });
 
-
-// CUANDO UN PARTNER CREE UNA VENUE (SERA ESTA FUNCION) !!!!!
-router.post('/', function (req, res, next) {
-
-  // recojer los valores 
-  // Y HACE EL POST
-
-  Venue.find()
-  .then(venue => {
-    res.render('venues/venues-browse', { venue });
+// POST A EVENT IN BD
+router.post('/event', function (req, res, next) {
+  console.log(req.body)
+  Event.create(req.body)
+  .then(x => {
+    res.render('venues/venues-browse');
   })
   .catch(error => {
-      if(error.code === 11000) {
-        return res.status(400).json({ error: 'This venue already exists' });
-      } else {
-        res.status(500).json({ error: 'Server error' });
-      }
-   })
+    next(error);
+  })
 });
-*/
 
 router.get('/api', function (req, res, next){
   Venue.find()
@@ -87,40 +70,6 @@ router.get('/api', function (req, res, next){
     next(error);
   })
 });
-
-router.get('/events/:id', function (req, res, next) {
-    const { id } = req.params;
-    Event.find({ id_venue: id})
-      .then(events => {
-
-        res.render('venues/venue-events', { events, style: 'venues/venues.css' });
-      })
-      .catch(error => {
-        next(error);
-      })
-});
-
-// POST A VENUE IN BD
-router.post('/event', function (req, res, next) {
-  Venue.create(req.body)
-  .then(x => {
-    console.log(x);
-    res.render('venues/venues-browse');
-  })
-  .catch(error => {
-    next(error);
-  })
-  /*
-  .catch(error => {
-      if(error.code === 11000) {
-        return res.status(400).json({ error: 'This venue already exists' });
-      } else {
-        res.status(500).json({ error: 'Server error' });
-      }
-   })
-  */
-});
-
 
 router.get('/tickets/:id', function (req, res, next) {
     const { id } = req.params;
@@ -135,3 +84,6 @@ router.get('/tickets/:id', function (req, res, next) {
 
 
 module.exports = router;
+
+
+

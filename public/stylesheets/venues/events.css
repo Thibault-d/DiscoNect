@@ -1,0 +1,118 @@
+  /*
+  .map {
+    width: 40%;
+  }
+
+  .detailsVenue{
+    width: 40%;
+    float: right;
+    height: 456px;
+    border-radius: 26px 26px 26px 26px;
+    -moz-border-radius: 26px 26px 26px 26px;
+    -webkit-border-radius: 26px 26px 26px 26px;
+    border: 2px solid #000000;
+    padding: 10px;
+  }
+
+  .sectionEvents{
+    width: 48%;
+    float: left;
+  }
+  
+  .line {
+    height: 3px;
+    background-color: black;
+  }
+  
+  .container {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .inLine {
+    display: flex;
+  }
+  
+  .col50 { 
+    width: 50%;
+  }
+  
+  .btn {
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #0099BC;
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+  } 
+
+  .title{
+      padding: 30px 0px 20px 10px;
+  }
+
+  .sectionMap{
+      height: 496px;
+  }
+
+  .centerText{
+      text-align: center;
+  }
+
+*/
+.container {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+  .sectionEvents{
+    padding: 10px;
+  }
+
+  .event{
+    padding: 10px;
+    margin: 10px;
+    line-height: 26px;
+    font-size: 16px;
+    font-family: serif;
+    color: black;
+    border-radius: 20px 20px 20px 20px;
+    -moz-border-radius: 20px 20px 20px 20px;
+    -webkit-border-radius: 20px 20px 20px 20px;
+    border: 2px solid darkgrey;
+    background: linear-gradient(to right, #ffffff 35%, #0099ff 100%);
+    border-radius: 1em;
+  }
+
+  .btn {
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #0099BC;
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+  } 
+
+  .padtop{
+    padding-top: 20px;
+  }
+
+  h4{
+    margin-right: 4px;
+  }
+
+  .inLine {
+    display: flex;
+  }
+
+  .btnBuy{
+    margin-top: 20px;
+    padding: 10px 20px;
+  }

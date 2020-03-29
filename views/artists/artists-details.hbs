@@ -1,27 +1,44 @@
-<h1>Artist detail</h1>
-<h2>{{this.details.name}}</h2>
-<img src={{this.details.images.[2].url}} alt="">
+<link rel='stylesheet' href='/stylesheets/artists/details.css'>
+<div class="artist-container">
+    <img src={{this.details.images.[2].url}} alt="">
+    <div class="artist-details">
+        <p>
+            <h1>{{this.details.name}}</h1> Popularity: {{this.details.popularity}}%
+        </p>
+        <br>
+        <div class="categories-container">
+            {{#each genre}}
+            <div class="categories">
+                {{this}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
 
-<br>Categories:
-<ul>
-    {{#each genre}}
-    <li>
-        {{this}}
-    </li>
-    {{/each}}
-</ul>
-
-Spotify Popularity score: {{this.details.popularity}}%
-<br>
-<br>
-<br>
-Top songs:
-<ul>
+<h2>Top songs</h2>
+<div class="tracks-container">
     {{#each tracks}}
-
-        <p>{{this.name}}</p>
+    <div class="tracks">
+        {{this.name}}
         <audio controls id="track-audio">
             <source src="{{this.preview_url}}" type="audio/ogg">
         </audio>
+    </div>
     {{/each}}
-</ul>
+</div>
+
+<h2> Upcoming events</h2>
+<div class="event-container">
+    {{#each event}}
+    <div class="event">
+        <p>
+            <h3>{{this.name}}</h3>
+        </p>
+        <p> {{this.place}}</p>
+        <p> {{this.date}}</p>
+        <p> {{this.description}}</p>
+        <p> <a href="">Buy Tickets</a></p>
+    </div>
+    {{/each}}
+</div>

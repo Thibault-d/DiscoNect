@@ -1,10 +1,16 @@
-<h1>Artist Result</h1>
+<link rel='stylesheet' href='/stylesheets/artists/search.css'>
+<h1>Search Result</h1>
 
-<p>Results of your search, now select the corresponding artist from the list</p>
+<div class="container-artists">
 
-
-{{#each results}}
-
-<br><a href="details/{{this.id}}">{{this.name}}</a>
-<br><img src="{{this.images.[1].url}}">
-{{/each }}<br>
+    {{#each results}}
+    <div class="gallery">
+        <a class="gallery-item" href="details/{{this.id}}">
+            <img src="{{this.images.[1].url}}" alt="artist">
+            <span class="text-wrapper">
+                <span class="name">{{this.name}}</span>
+            </span>
+        </a>
+    </div>
+    {{/each }}
+</div>

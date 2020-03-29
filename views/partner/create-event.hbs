@@ -1,39 +1,41 @@
-<link rel='stylesheet' href='/stylesheets/{{style}}'/>
+
+<link rel='stylesheet' href='/stylesheets/partner/event.css'>
 <br>
 <br>
 
-<section>
-    <form action="/venues" method="POST">
-        <div class="centerText">
-          <label for="name">Name </label>
+<section class="form">
+    <form action="/venues/event" method="POST">
+        <div class="centerText firstParam">
+          <label class="widthParms" for="name">Name </label>
           <input type="text" name="name"/>
-        </div>
+        </div> <br>
 
         <div class="centerText">
-          <label for="place"> Place </label>
+          <label class="widthParms" for="place"> Place </label>
           <input type="text" name="place"/>
-        </div>
+        </div> <br>
 
         <div class="centerText">
-          <label for="picture">Picture </label>
-          <input type="text" name="picture"/>
-        </div>
-
-        <div class="centerText">
-          <label for="description">Description </label>
+          <label class="widthParms" for="description">Description </label>
           <input type="text" name="description"/>
-        </div>
+        </div> <br>
 
          <div class="centerText">
-          <label for="date">Date </label>
+          <label class="widthParms" for="date">Date </label>
           <input type="text" name="date"/>
-        </div>
+        </div> <br>
 
-        <div class="centerText">
-          <label for="date">Escoje los artistas  </label>
-          <input type="text" name="date"/>
-        </div>
+        <input type="hidden" name="id_venue" value="{{id}}"/>
 
-        <button type="submit" value="submit">Submit</button>
+        <select class="selectArtist" id="id_artists" name="id_artists" multiple>
+          {{#each artists}}
+            <option value="{{this.spotifyid}}"> {{this.name}} </option>
+          {{/each}} 
+        </select>
+
+        <button class="btnSubmit btn" type="submit" value="submit">Submit</button>
       </form>
 </section>
+
+
+

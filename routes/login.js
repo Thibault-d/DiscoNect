@@ -9,10 +9,7 @@ const saltRounds    = 10;
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('login/login',
-    {
-        style: 'login/login.css'
-    });
+    res.render('login/login');
 });
 
 router.post('/', function (req, res, next) {
@@ -28,12 +25,11 @@ router.post('/', function (req, res, next) {
             })
         ])
         .then(values => {
-            console.log(values)
             if (values[0] !== null) {
                 if (bcrypt.compareSync(password, values[0].password)) {
                     // Save the login in the session!
                     req.session.currentUser = values[0];
-                    res.cookie('type', 'partner', { maxAge: 900000});
+                    res.cookie('type', 'partner', { maxAge: 90000000});
                     res.redirect("/");
                 } else {
                     res.render("login/login", {
@@ -44,7 +40,7 @@ router.post('/', function (req, res, next) {
                 if (bcrypt.compareSync(password, values[1].password)) {
                     // Save the login in the session!
                     req.session.currentUser = values[1];
-                    res.cookie('type', 'visitor', { maxAge: 900000});
+                    res.cookie('type', 'visitor', { maxAge: 90000000});
                     res.redirect("/");
                 } else {
                     res.render("login/login", {

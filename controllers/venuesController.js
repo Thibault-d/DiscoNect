@@ -35,7 +35,6 @@ exports.getVenues = async (req, res, next) => {
 
 // ADD A VENUE 
 exports.addVenue = (req, res, next) => {
-  console.log(req.body);
   Venue.create(req.body)
   .then(venue => {
     res.render('venues/venues-browse');
