@@ -26,7 +26,11 @@ function getVenues(){
           ]
         },
         properties: {
-          storeId: venues.name,
+          venuesName:         venues.name,
+          venuesAddress:      venues.location.formattedAddress,
+          venuesID:           venues._id,
+          venuesPicture:      venues.picture,
+          venuesDescription:  venues.description,
           icon: 'shop'
         }
       };
@@ -38,7 +42,6 @@ function getVenues(){
   function loadMap(venues) {
 
     map.on('load', function() {
-
       map.loadImage(
         '/img/icon.png',
         function(error, image) {
@@ -66,28 +69,27 @@ function getVenues(){
     });
 
     map.on('click', 'points', function(e) {
+      var prp = e.features[0].properties;
       var coordinates = e.features[0].geometry.coordinates.slice();
-      var description = e.features[0].properties.description;
-       
-      // Ensure that if the map is zoomed out such that multiple
-      // copies of the feature are visible, the popup appears
-      // over the copy being pointed to.
+      var popup = ' <div style="font-weight: bold; font-size: 20px">' + prp.venuesName + '</div> <br> ' 
+                + ' <p> ' + prp.venuesDescription  + '</p> <br> ' 
+                + ' <img width="220px" height="120px" src="'+ prp.venuesPicture +'"> <br> <br>  '
+                + ' <a class="btnVenue" href="/venues/events/'+ prp.venuesID +'"> See all the Events </a> ';
+
       while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
       }
        
       new mapboxgl.Popup()
-      .setLngLat(coordinates)
-      .setHTML('<div style="background-color: red"> hola Caracolaaa </div><br> <img width="450px" height="250px" src="https://barcelonasecreta.com/wp-content/uploads/2018/10/1515607220782.jpg">')
-      .addTo(map);
+        .setLngLat(coordinates)
+        .setHTML(popup)
+        .addTo(map);
       });
-
 
     map.on('mouseenter', 'points', function() {
       map.getCanvas().style.cursor = 'pointer';
       });
        
-    // Change it back to a pointer when it leaves.
     map.on('mouseleave', 'points', function() {
       map.getCanvas().style.cursor = '';
     });

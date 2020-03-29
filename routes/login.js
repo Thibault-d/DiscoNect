@@ -25,7 +25,6 @@ router.post('/', function (req, res, next) {
             })
         ])
         .then(values => {
-            console.log(values)
             if (values[0] !== null) {
                 if (bcrypt.compareSync(password, values[0].password)) {
                     // Save the login in the session!

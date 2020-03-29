@@ -59,4 +59,33 @@
 
   .centerText{
       text-align: center;
+      display: flex;
+  }
+
+  .widthParms{
+    width: 200px;
+  }
+
+  .form{
+    margin: 10% 0px 0px 36%;
+    width: 400px;
+    background-color: white;
+    border-radius: 18px 18px 18px 18px;
+    -moz-border-radius: 18px 18px 18px 18px;
+    -webkit-border-radius: 18px 18px 18px 18px;
+    border: 9px solid #000000;
+  }
+
+  body{
+    background-image: url('https://img-hws.y8.com/cloud/y8-thumbs/26108/video_thumbnail.jpg');
+  }
+
+  .btnSubmit {
+    margin-left: 171px;
+    padding: 10px 20px 10px 20px;
+    margin-bottom: 20px;
+  }
+
+  .firstParam{
+    padding-top: 20px;
   }

@@ -24,7 +24,6 @@ router.get('/identify', function (req, res, next) {
             'id_partner': req.session.currentUser._id
           })
           .then(venues => {
-            console.log(venues);
             res.json(venues);
           })
           .catch(error => {

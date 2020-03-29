@@ -16,6 +16,7 @@ router.use((req, res, next) => {
 
 // ONLY GET THE VIEW VENUES 
 router.get('/', function (req, res, next) {
+  // NECESITO RECOJER EL ID DEL PARTNER REGISTRADO PARA PODER HACER UN ADD SIN PEDIRLO
   res.render('venues/venues-browse');
 });
 
@@ -27,9 +28,12 @@ router.post('/', function (req, res, next) {
     res.render('venues/venues-browse');
   })
   .catch(error => {
-    next(error);
-  })
-
+      if(error.code === 11000) {
+        return res.status(400).json({ error: 'This venue already exists' });
+      } else {
+        res.status(500).json({ error: 'Server error' });
+      }
+   })
 });
 
 // GET THE VIEW OF THE EVENTS (ONE PARTNER)
@@ -37,7 +41,8 @@ router.get('/events/:id', function (req, res, next) {
   const { id } = req.params;
   Event.find({ id_venue: id})
     .then(events => {
-      res.render('venues/venue-events', { events, style: 'venues/venues.css' });
+      console.log('------------------id-----------------' + id)
+      res.render('venues/venue-events', { events, style: 'venues/venues.css', id });
     })
     .catch(error => {
       next(error);
@@ -46,9 +51,9 @@ router.get('/events/:id', function (req, res, next) {
 
 // POST A EVENT IN BD
 router.post('/event', function (req, res, next) {
+  console.log(req.body)
   Event.create(req.body)
   .then(x => {
-    console.log(x);
     res.render('venues/venues-browse');
   })
   .catch(error => {
@@ -82,12 +87,3 @@ module.exports = router;
 
 
 
-  /*
-  .catch(error => {
-      if(error.code === 11000) {
-        return res.status(400).json({ error: 'This venue already exists' });
-      } else {
-        res.status(500).json({ error: 'Server error' });
-      }
-   })
-  */
