@@ -2,11 +2,13 @@
     margin: 50px;
     display: flex;
     font-size: 1.2em;
-    height: 160px;
 }
 
 .artist-details {
     margin-left: 20px;
+}
+.artist-container > img{
+   height: 160px;
 }
 
 .categories-container {
@@ -14,42 +16,50 @@
 }
 
 .categories {
-
     border-style: solid;
     margin-left: 0px;
     margin-right: 10px;
     padding: 10px;
 }
 
-.track-container {
-    display: flex;
-    flex-wrap: wrap;
-    color: white;
-    justify-content: center;
-    background-color: #777779;
-    margin-left: 50px;
-    margin-right: 50px;
-}
-
-.track {
-    text-align: center;
-    margin: 20px;
-}
-
 h2 {
     text-align: center;
+    margin-bottom: 20px;
 }
 
-.event-containers {
-    margin-left: 100px;
+.event-container {
     display: flex;
-    flex-direction: column;
-    padding-left:20px;
+    flex-direction: line;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: center;
 }
 
 .event {
- 
     display: flex;
     flex-direction: column;
+    border-style: solid;
+    width: 250px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    padding:10px;
 }
 
+.event>p::before {
+    content: "\A";
+    white-space: pre;
+}
+
+.tracks-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+}
+
+.tracks{
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+}
