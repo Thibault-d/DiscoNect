@@ -4,38 +4,50 @@
     text-align: center;
     margin-bottom: 70px;
 }
-.homepage-selection{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-right: 50px;
-    margin-left: 50px;
-  
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-.selection{
-    padding:120px;
-}
-.selection-artist > img {
-    height: 300px;
-}
-.selection-venues > img{
-    height: 300px;
-}
-.selection-artist > a {
-    position: absolute;
-    top: 50%;
-    left: 30%;
-    transform: translate(-50%, -50%);
-    color: white;
+
+.gallery-item {
+    width: 600px;
+    height: 400px;
+    margin: 30px;
     text-decoration: none;
 }
-.selection-venues > a {
+
+.gallery-item img {
+    width: 600px;
     position: absolute;
-    top: 50%;
-    right: 24%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-decoration: none;
 }
+
+.text-wrapper {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    opacity: 0;
+}
+
+.text-wrapper:hover {
+    transition: all 0.5s ease;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 1;
+}
+
+.name {
+    font-size: 1.5em;
+}
+
+h1 {
+    margin-top: 40px;
+    text-align: center;
+}
+
 

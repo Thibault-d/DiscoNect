@@ -48,8 +48,16 @@ router.get("/search", (req, res, next) => {
     const searchString = req.query.search;
     spotifyApi.searchArtists(searchString)
         .then(function (data) {
+                let dirty = data.body.artists.items;
+                let clean = [];
+                for (i = 0; i < dirty.length; i++) {
+                    if (dirty[i].images.length > 0) {
+                        clean[i] = dirty[i];
+                    }
+                }
+                console.log(data.body.artists.items[1].images);
                 res.render("artists/artists-results", {
-                    results: data.body.artists.items
+                    results: clean
                 })
             },
             function (err) {
