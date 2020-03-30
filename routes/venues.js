@@ -41,7 +41,7 @@ router.get('/events/:id', function (req, res, next) {
   const { id } = req.params;
   Event.find({ id_venue: id})
     .then(events => {
-      console.log('------------------id-----------------' + id)
+      console.log(events)
       res.render('venues/venue-events', { events, style: 'venues/venues.css', id });
     })
     .catch(error => {
@@ -51,8 +51,27 @@ router.get('/events/:id', function (req, res, next) {
 
 // POST A EVENT IN BD
 router.post('/event', function (req, res, next) {
-  console.log(req.body)
-  Event.create(req.body)
+  let reqArtis = req.body.id_artists;
+  let allArtists = [];
+  for(let a = 0; a < reqArtis.length; a++){
+    let art = req.body.id_artists[a].split("'");
+    let artist = {
+      name: art[1],
+      img: art[3],
+      idspoty: art[5]
+    }  
+    allArtists.push(artist);
+  }
+
+  Event.create({
+    name: req.body.name,
+    place: req.body.place,
+    description: req.body.description,
+    date: req.body.date,
+    price: req.body.price,
+    id_venue: req.body.id_venue,
+    artists: allArtists
+  })
   .then(x => {
     res.render('venues/venues-browse');
   })

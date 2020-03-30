@@ -4,6 +4,7 @@ const Artist = require('../models/Artist');
 
 // VIEW THE FORM FOR CREATE A VENUE IF YOU ARE A PARTNER
 router.get('/create-venue', function (req, res, next) {
+  
   res.render('partner/create-venue');
 });
 

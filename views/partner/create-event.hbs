@@ -25,11 +25,16 @@
           <input type="text" name="date"/>
         </div> <br>
 
+        <div class="centerText">
+          <label class="widthParms" for="price">Price </label>
+          <input type="text" name="price"/>
+        </div> <br>
+
         <input type="hidden" name="id_venue" value="{{id}}"/>
 
         <select class="selectArtist" id="id_artists" name="id_artists" multiple>
           {{#each artists}}
-            <option value="{{this.spotifyid}}"> {{this.name}} </option>
+            <option value="{{this}}"> {{this.name}} </option> 
           {{/each}} 
         </select>
 
