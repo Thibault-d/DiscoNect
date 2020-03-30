@@ -23,14 +23,20 @@
           <h4> Date: </h4>  {{date}} <br>
         </div>
         <div class="inLine">
-          <h4> Price: </h4>  <br>
+          <h4> Price: </h4> {{price}} <br>
         </div>
-        <div class="inLine">
-          <h4> Artists: </h4>
-        </div>
+        <div>
+          <h4> Artists: </h4> <br>
+          {{#each artists}}
+          <div class="imgCont">
+              <div class="texto-encima"> {{name}} </div>
+              <img src="{{img}}" width="130" height="125">
+          </div>
+          {{/each}}
+          <br>
           <a class="btn btnBuy" href="/venues/tickets/{{this._id}}"> Buy ticket </a>
+        </div>
       </div>
-
       {{/each}}
   </section>
 </div>

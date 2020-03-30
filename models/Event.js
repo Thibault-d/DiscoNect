@@ -7,8 +7,9 @@ const eventSchema = new Schema({
     place:       {type: String, required: true},
     description: {type: String, required: true},
     date:        {type: Date, required: true},
+    price:       {type: Number, required: true},
     id_venue:    {type: String },
-    id_artists:  {type: Array}
+    artists:     {type: Array}
 });
 
 const Event = mongoose.model('Event', eventSchema);

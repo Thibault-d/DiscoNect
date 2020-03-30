@@ -56,7 +56,6 @@ Promise.all([
             }) //Redirection route after you succesfully registered
             .then((x) => {
               req.session.currentUser =x;
-              console.log(x);
               res.cookie('type', 'visitor', { maxAge: 90000000});
               res.redirect("/");
             })
@@ -74,7 +73,6 @@ Promise.all([
             }) //Redirection route after you succesfully registered
             .then((x) => {
               req.session.currentUser =x;
-              console.log(x);
               res.cookie('type', 'partner', { maxAge: 900000});
               res.redirect("/");
             })

@@ -47,6 +47,10 @@ h2 {
     padding:10px;
 }
 
+p > img {
+    width: 15px;
+}
+
 .event>p::before {
     content: "\A";
     white-space: pre;

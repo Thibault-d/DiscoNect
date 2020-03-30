@@ -1,22 +1,29 @@
-<link rel='stylesheet' href='/stylesheets/login/login.css'>
+<link rel='stylesheet' href='/stylesheets/login/signup.css'>
+<link rel='stylesheet' href='/stylesheets/error.css'>
+<h1>Login</h1>
+<h2>Welcome back mate</h2>
+
+
+{{#if errorMessage }}
+<div class="err">{{ errorMessage }}</div>
+{{/if}}
+
 <form action="/login" method="POST">
-
-    <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="username" value="partner" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" value="1234" required>
-
-    <button type="submit">Login</button>
-    <br>
-    <br>
-    <br>
-    {{#if errorMessage }}
-    <div>{{ errorMessage }}</div>
-    {{/if}}
-    <br>
-
-    <p>
-        Don't have an account? <a href="/signup">Sign up</a>
-    </p>
+    <ul class="form-style-1">
+        <li>
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username" value="partner" required>
+        </li>
+        <li>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" value="1234" required>
+        </li>
+        <br>
+        <input type="submit" value="Submit" />
+        <br>
+        <br>
+        <p>
+            Don't have an account yet ? <a href="/signup">Sign up</a>
+        </p>
+    </ul>
 </form>

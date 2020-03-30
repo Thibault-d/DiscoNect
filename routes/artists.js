@@ -17,7 +17,6 @@ spotifyApi
 
 router.use((req, res, next) => {
     const redirect = req.url;
-    console.log(redirect)
     if (req.session.currentUser) { // <== if there's user in the session (user is logged in)
         next(); 
     } else {
@@ -55,7 +54,6 @@ router.get("/search", (req, res, next) => {
                         clean[i] = dirty[i];
                     }
                 }
-                console.log(data.body.artists.items[1].images);
                 res.render("artists/artists-results", {
                     results: clean
                 })
@@ -75,11 +73,19 @@ router.get("/details/:id", (req, res) => {
        })
     ]).then((data) =>{
         const select = data[1].body.tracks.slice(0,3);
+        let events = data[2];
+        let empty = "";
+        console.log(events);
+        if(events.length == 0) {
+            empty = "Sorry, there are currently no events featuring this artist"
+            console.log(empty);
+        }
         res.render("artists/artists-details", {
             genre: data[0].body.genres,
             details: data[0].body,
             tracks: select,
-            event:data[2]
+            event: events,
+            empty: empty
         });    
     })
     .catch(error => { return error })
