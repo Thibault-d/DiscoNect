@@ -1,11 +1,11 @@
 <link rel='stylesheet' href='/stylesheets/login/signup.css'>
-
+<link rel='stylesheet' href='/stylesheets/error.css'>
 <h1>Login</h1>
 <h2>Welcome back mate</h2>
 
 
 {{#if errorMessage }}
-<div>{{ errorMessage }}</div>
+<div class="err">{{ errorMessage }}</div>
 {{/if}}
 
 <form action="/login" method="POST">
