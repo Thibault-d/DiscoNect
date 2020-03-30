@@ -19,7 +19,7 @@ router.get('/identify', function (req, res, next) {
     .then(values => {
       if (values[0] !== null) {
         console.log("You are a Partner!")
-        console.log("Your Partner ID is:",req.session.currentUser._id )
+        console.log("Your Partner ID is:", req.session.currentUser._id )
         Venue.find({
             'id_partner': req.session.currentUser._id
           })
