@@ -6,7 +6,6 @@ const Event   = require('../models/Event');
 // TEST IF YOU ARE A PARTNER OR A CLIENT
 router.use((req, res, next) => {
   const redirect = req.url;
-  console.log(redirect)
   if (req.session.currentUser) { // <== if there's user in the session (user is logged in)
       next(); 
   } else {
