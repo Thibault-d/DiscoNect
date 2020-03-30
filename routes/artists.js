@@ -17,7 +17,6 @@ spotifyApi
 
 router.use((req, res, next) => {
     const redirect = req.url;
-    console.log(redirect)
     if (req.session.currentUser) { // <== if there's user in the session (user is logged in)
         next(); 
     } else {
@@ -55,7 +54,6 @@ router.get("/search", (req, res, next) => {
                         clean[i] = dirty[i];
                     }
                 }
-                console.log(data.body.artists.items[1].images);
                 res.render("artists/artists-results", {
                     results: clean
                 })

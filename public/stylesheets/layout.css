@@ -8,20 +8,35 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    height: 50px;
+    height: 55px;
     font-family: 'Roboto', sans-serif;
     background-color: #F4F7F6;
+  
 }
-
 .nav .links {
     text-decoration: none;
     color: #202121;
     padding: 15px;
 }
-
 .nav .links:hover {
    font-weight: bold;
     color: #F4F7F6;
     background-color: #202121;
 }
 
+#navigation{
+    width: 600px;
+}
+
+
+#auth{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 50px;
+}
+
+img {
+    width: 25px;
+}
