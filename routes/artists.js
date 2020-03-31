@@ -69,11 +69,12 @@ router.get("/details/:id", (req, res) => {
         spotifyApi.getArtist(id),
         spotifyApi.getArtistTopTracks(id, 'GB'),
         Event.find({
-            id_artists: { $all: [id] } 
+            artists: { $elemMatch: {"idspoty": id} } 
        })
     ]).then((data) =>{
         const select = data[1].body.tracks.slice(0,3);
         let events = data[2];
+        console.log(events);
         let empty = "";
         console.log(events);
         if(events.length == 0) {

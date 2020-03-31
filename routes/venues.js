@@ -41,7 +41,7 @@ router.get('/events/:id', function (req, res, next) {
   Event.find({ id_venue: id})
     .then(events => {
       console.log(events)
-      res.render('venues/venue-events', { events, style: 'venues/venues.css', id });
+      res.render('venues/venue-events', { events, id });
     })
     .catch(error => {
       next(error);
@@ -50,17 +50,30 @@ router.get('/events/:id', function (req, res, next) {
 
 // POST A EVENT IN BD
 router.post('/event', function (req, res, next) {
+
   let reqArtis = req.body.id_artists;
   let allArtists = [];
-  for(let a = 0; a < reqArtis.length; a++){
-    let art = req.body.id_artists[a].split("'");
-    let artist = {
-      name: art[1],
-      img: art[3],
-      idspoty: art[5]
-    }  
-    allArtists.push(artist);
+  console.log(reqArtis.length);
+  if(reqArtis.length > 50){
+    let art = req.body.id_artists.split("'");
+      let artist = {
+        name: art[1],
+        img: art[3],
+        idspoty: art[5]
+      }  
+      allArtists.push(artist);
+  }else{
+    for(let a = 0; a < reqArtis.length; a++){
+      let art = req.body.id_artists[a].split("'");
+      let artist = {
+        name: art[1],
+        img: art[3],
+        idspoty: art[5]
+      }  
+      allArtists.push(artist);
+    }
   }
+
 
   Event.create({
     name: req.body.name,
@@ -72,7 +85,7 @@ router.post('/event', function (req, res, next) {
     artists: allArtists
   })
   .then(x => {
-    res.render('venues/venues-browse');
+    res.redirect('/venues');
   })
   .catch(error => {
     next(error);
