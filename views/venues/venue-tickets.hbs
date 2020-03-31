@@ -1,12 +1,49 @@
-<link rel='stylesheet' href='/stylesheets/venues/tickets.css'/>
-<h1>Buy tickets for this concert</h1>
-<p>Price for one ticket</p>
-<p>Quantity desired</p>
-<p>Total price</p>
-<a href="">
-    <h2>Pay your tickets</h2>
-</a>
 
-<h3> Name: </h3> {{event.name}} 
-<h3> place: </h3> {{event.description}}
-<img src="{{event.picture}}"> 
+<link rel='stylesheet' href='/stylesheets/venues/tickets.css'/>
+
+<div class="container">
+  <h2 class="title">Pay your tickets</h2>
+  <section class="sectionEvents"> 
+      <div class="event">
+        <div class="inLine">
+          <h4> Name: </h4> 
+          <p class="black"> {{event.name}} </p>  
+          <br>
+        </div>
+        <div class="inLine">
+          <h4> Place: </h4> 
+          <p class="black"> {{event.place}} </p>
+          <br>
+        </div>
+        <div class="inLine">
+          <h4> Description: </h4> 
+          <p class="black"> {{event.description}} </p>
+          <br>
+        </div>
+        <div class="inLine">
+          <h4> Date: </h4> 
+          <p class="black"> {{event.date}} </p>
+          <br>
+        </div>
+        <div class="inLine">
+          <h4> Price: </h4> 
+          <p class="black"> {{event.price}} € </p>
+          <br>
+        </div>
+        <div class="inLine">
+            <h4> Number ticket </h4>
+            <input class="number-ticket" type="number" id="quantity" name="quantity" min="1" max="20">
+        </div>
+        <br>
+        <div class="inLine">
+          <h4> Artists: </h4> 
+          <div class="artistas">
+            {{#each event.artists}}
+                <span class="name"> {{name}}, </span>
+            {{/each}}
+          </div>
+        </div>
+        <a class="btn btnBuy" href="https://www.seguridadprofesional.es/wp-content/uploads/2016/11/bbva-redsys.png"> Buy ticket </a>
+      </div>
+  </section>
+</div>
