@@ -67,3 +67,15 @@ p > img {
     display:flex;
     flex-direction: column;
 }
+
+.btn {
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #0099BC;
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+  }
