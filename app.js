@@ -23,7 +23,7 @@ const app             = express();
 const APIRouter       = require('./routes/venues');
 
 
-const monogUrl      = process.env.MONGO_URL;
+const monogUrl      = process.env.MONGO_URL_LIVE;
 const mongoLocal    = process.env.MONGO_LOCAL_HOST;
 
 // Conexion with BD Mongo
