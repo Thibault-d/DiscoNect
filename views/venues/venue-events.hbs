@@ -28,10 +28,16 @@
         <div>
           <h4> Artists: </h4> <br>
           {{#each artists}}
-          <div class="imgCont">
-              <div class="texto-encima"> {{name}} </div>
-              <img src="{{img}}" width="130" height="125">
+          <div class="gallery">
+            <div class="gallery-item">
+            <img src="{{img}}">
+              <span class="text-wrapper"> 
+                  <span class="name"> {{name}} </span>
+              </span>
+            </div>
           </div>
+
+          
           {{/each}}
           <br>
           <a class="btn btnBuy" href="/venues/tickets/{{this._id}}"> Buy ticket </a>
