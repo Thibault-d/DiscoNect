@@ -1,4 +1,4 @@
-<link rel='stylesheet' href='/stylesheets/venues/events.css'/>
+<link rel='stylesheet' href='/stylesheets/venues/events.css' />
 
 <div class="container">
   <h1 class="padtop"> All the Events </h1>
@@ -7,27 +7,29 @@
     <a class="btn" href="/partner/create-event/{{id}}"> Add an Event </a> </button>
   </div>
 
-  <section class="sectionEvents"> 
-      {{#each events}}
-      <div class="event">
-        <div class="inLine">
-          <h4> Name: </h4> {{name}} <br>
-        </div>
-        <div class="inLine">
-          <h4> Place: </h4> {{place}} <br>
-        </div>
-        <div class="inLine">
-          <h4> Description: </h4> {{description}} <br>
-        </div>
-        <div class="inLine">
-          <h4> Date: </h4>  {{date}} <br>
-        </div>
-        <div class="inLine">
-          <h4> Price: </h4> {{price}} <br>
-        </div>
-        <div>
-          <h4> Artists: </h4> <br>
+  <section class="sectionEvents">
+    {{#each events}}
+    <div class="event">
+      <div class="inLine">
+        <h4> Name: </h4> {{name}} <br>
+      </div>
+      <div class="inLine">
+        <h4> Place: </h4> {{place}} <br>
+      </div>
+      <div class="inLine">
+        <h4> Description: </h4> {{description}} <br>
+      </div>
+      <div class="inLine">
+        <h4> Date: </h4> {{date}} <br>
+      </div>
+      <div class="inLine">
+        <h4> Price: </h4> {{price}}€<br>
+      </div>
+      <div>
+        <h4> Artists: </h4> <br>
+        <div class="artists-thumbnail">
           {{#each artists}}
+
             <div class="gallery">
               <div class="gallery-item">
               <img src="{{img}}">
@@ -38,9 +40,11 @@
             </div>
           {{/each}}
           <br>
+          </div>
           <a class="btn btnBuy" href="/venues/tickets/{{this._id}}"> Buy ticket </a>
         </div>
       </div>
       {{/each}}
+
+    </div>
   </section>
-</div>
