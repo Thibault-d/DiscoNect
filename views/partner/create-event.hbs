@@ -7,27 +7,27 @@
     <form action="/venues/event" method="POST">
         <div class="centerText firstParam">
           <label class="widthParms" for="name">Name </label>
-          <input type="text" name="name"/>
+          <input type="text" name="name" required/>
         </div> <br>
 
         <div class="centerText">
           <label class="widthParms" for="place"> Place </label>
-          <input type="text" name="place"/>
+          <input type="text" name="place" required/>
         </div> <br>
 
         <div class="centerText">
           <label class="widthParms" for="description">Description </label>
-          <input type="text" name="description"/>
+          <input type="text" name="description" required/>
         </div> <br>
 
          <div class="centerText">
           <label class="widthParms" for="date">Date </label>
-          <input type="date" id="date" name="date">
+          <input type="date" id="date" name="date" required>
         </div> <br>
 
         <div class="centerText">
           <label class="widthParms" for="price">Price </label>
-          <input type="text" name="price"/>
+          <input type="text" name="price" required/>
         </div> <br>
 
         <input type="hidden" name="id_venue" value="{{id}}"/>
