@@ -17,14 +17,7 @@ let partners = [
 mongoose
   .connect(monogUrl, {useNewUrlParser: true})
   .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
-
-    Partner.create(partners, err => {
-        if(err)
-            console.log("Error with the creations parnters")
-        else
-            mongoose.connection.close();
-    })
+    Partner.create(partners, err)
 
   })
   .catch(err => {

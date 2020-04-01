@@ -25,13 +25,7 @@ let events = [
 mongoose
   .connect(monogUrl, {useNewUrlParser: true})
   .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-    Event.create(events, err => {
-        if(err)
-            console.log("Error with the creations Event")
-        else
-            mongoose.connection.close();
-    })
+    Event.create(events, err)
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)

@@ -28,7 +28,6 @@ venueSchema.pre('save', function (next) {
      geo.setAccessToken(process.env.MAPBOX_TOKEN);
      geo.geocode('mapbox.places', this.address, (err, geoData) => {
        if (err) {
-         console.log(err);
          return ;
        }
        this.location = {

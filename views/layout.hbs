@@ -16,7 +16,8 @@
     <div class="auth">
       <a class="links" id="login" href="/login">login</a>
       <a class="links" id="signup" href="/signup">Sign-up</a>
-      <a class="links" id="myaccount" href="/myaccount"><img title="My Account" src="/img/account.png" alt="My Account"></a>
+      <a class="links" id="myaccount" href="/myaccount"><img title="My Account" src="/img/account.png"
+          alt="My Account"></a>
       <a class="links" id="logout" href="/logout"><img title="Log Out" src="/img/switch.png" alt="Log out"></a>
     </div>
   </nav>
@@ -26,12 +27,35 @@
   {{{body}}}
 </body>
 
+<footer>
+  <div class="footer-container">
+
+
+    <div>
+      Made with <img id="love-icon" src="/img/love.png" alt=""> by
+      <a class="linkedin" href="https://www.linkedin.com/in/alejandro-jimenez-regalon/">Alejandro Jiménez Regalón</a>
+      & <a class="linkedin" href="https://www.linkedin.com/in/thibaultdelfaud/">Thibault Delfaud</a>
+    </div>
+
+    <div>
+      <img class="footer-img" id="mapbox" src="/img/mapbox.png" alt="">
+      <img class="footer-img"  src="/img/spotify.png" alt="">
+
+    </div>
+
+
+    <div>
+      <img class="footer-img"  src="/img/mastercard.png" alt="">
+      <img class="footer-img"  src="/img/visa.png" alt="">
+    </div>
+  </div>
+</footer>
+
 </html>
 
 <script>
   //personalize the menu depending on current loggin state
   var x = document.cookie;
-  console.log(x)
   switch (x) {
     case "type=partner":
       document.getElementById("login").style.display = "none";
