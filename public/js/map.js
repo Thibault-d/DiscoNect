@@ -1,10 +1,10 @@
-mapboxgl.accessToken = 'pk.eyJ1IjoidGhpYmF1bHQtZGVsIiwiYSI6ImNrN3J2ZGFpbzBhMzczb21ycjNtamxjbmEifQ.H4jzajdc30ChH2RYLtkCzQ' //process.env.MAPBOX_TOKEN;
+mapboxgl.accessToken = 'pk.eyJ1IjoidGhpYmF1bHQtZGVsIiwiYSI6ImNrN3J2ZGFpbzBhMzczb21ycjNtamxjbmEifQ.H4jzajdc30ChH2RYLtkCzQ' 
 
 var map = new mapboxgl.Map({
-  container: 'map', // container id
-  style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-  center: [2.191063, 41.398460], // starting position [lng, lat]
-  zoom: 13 // starting zoom
+  container: 'map', 
+  style: 'mapbox://styles/mapbox/streets-v11', 
+  center: [2.191063, 41.398460], 
+  zoom: 13 
 });
 
 function getVenues() {

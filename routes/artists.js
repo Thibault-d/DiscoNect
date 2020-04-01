@@ -74,9 +74,7 @@ router.get("/details/:id", (req, res) => {
     ]).then((data) =>{
         const select = data[1].body.tracks.slice(0,3);
         let events = data[2];
-        console.log(events);
         let empty = "";
-        console.log(events);
         if(events.length == 0) {
             empty = "Sorry, there are currently no events featuring this artist"
             console.log(empty);

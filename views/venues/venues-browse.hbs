@@ -16,7 +16,6 @@
     </div>
     <div>
       <a class="btn" id="add-partner" href="partner/create-venue"> Add a Venue </a> </button>
-      <!-- <a class="btn" href="partner/create-venue/{{id}}"> Add Venue </a> </button> -->
     </div>
   </section> <br>
 
@@ -33,7 +32,6 @@
   var x = document.cookie;
   switch (x) {
     case "type=partner":
-      console.log("welcome, partner!")
       break;
     case "type=visitor":
       document.getElementById("add-partner").style.display = "none";

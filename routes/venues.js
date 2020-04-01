@@ -40,7 +40,6 @@ router.get('/events/:id', function (req, res, next) {
   const { id } = req.params;
   Event.find({ id_venue: id})
     .then(events => {
-      console.log(events)
       res.render('venues/venue-events', { events, id });
     })
     .catch(error => {
@@ -50,10 +49,8 @@ router.get('/events/:id', function (req, res, next) {
 
 // POST A EVENT IN BD
 router.post('/event', function (req, res, next) {
-
   let reqArtis = req.body.id_artists;
   let allArtists = [];
-  console.log(reqArtis.length);
   if(reqArtis.length > 50){
     let art = req.body.id_artists.split("'");
       let artist = {
@@ -73,7 +70,6 @@ router.post('/event', function (req, res, next) {
       allArtists.push(artist);
     }
   }
-
 
   Event.create({
     name: req.body.name,
