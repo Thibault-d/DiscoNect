@@ -66,8 +66,7 @@
 
   .sectionEvents{
     width: 67%;
-    border: 1px solid black;
-    border-radius: 1em;
+    border: solid black;
     padding: 10px 46px;
   }
 
